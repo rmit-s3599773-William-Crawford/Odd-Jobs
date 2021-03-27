@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import './contactUs.css'
-import HomeNaveBar from '../HomeNaveBar';
+import { FaLocationArrow, FaPhoneVolume, FaCalendarAlt  } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+
+
 
 class contactUs extends Component {
 
@@ -10,21 +13,31 @@ class contactUs extends Component {
             {/* <HomeNaveBar/> */}
                 <div className="contact-page">
                     <h2>Contact Us</h2>
-                    <div className="contact-info">
+                <div className="contact-info">
+                        <div className="item">
+                        <a style={{ margin: "10px" }}>
+                            <FaLocationArrow/>
+                        </a>
+                            Melbourne, Australia
+                        </div>
+                        <div className="item">
+                        <a style={{ margin: "10px" }}>
+                            <FaPhoneVolume/>
+                        </a>
+                            +0 000 0000000
+                        </div>
+                        <div className="item">
+                        <a style={{ margin: "10px" }}>
+
+                            <MdEmail/>
+                        </a>
+                            email@address.com
+                        </div>
                     <div className="item">
-                        <i className="icon fas fa-home"></i>
-                        Melbourne, Australia
-                    </div>
-                    <div className="item">
-                        <i className="icon fas fa-phone"></i>
-                        +0 000 0000000
-                    </div>
-                    <div className="item">
-                        <i className="icon fas fa-envelope"></i>
-                        email@address.com
-                    </div>
-                    <div className="item">
-                        <i className="icon fas fa-clock"></i>
+                    <a style={{ margin: "10px" }}>
+
+                        <FaCalendarAlt/>
+                    </a>
                         Mon - Fri 8:00 AM to 6:00 PM
                     </div>
                     </div>
