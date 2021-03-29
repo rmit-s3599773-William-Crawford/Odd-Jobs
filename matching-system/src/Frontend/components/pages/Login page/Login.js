@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import HomeNaveBar from '../Home page/HomeNaveBar';
+import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
+import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Login.css';
 
 
@@ -30,6 +31,7 @@ class Login extends Component{
       return (
         <Container>
         <HomeNaveBar/>
+        <SearchBar/>
           <div>
             <Form className="login-form">
               <h1>Login</h1>

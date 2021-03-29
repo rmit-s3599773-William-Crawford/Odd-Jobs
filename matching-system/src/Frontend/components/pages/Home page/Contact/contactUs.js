@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import './contactUs.css'
 import { FaLocationArrow, FaPhoneVolume, FaCalendarAlt  } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import './contactUs.css'
+
 
 
 
