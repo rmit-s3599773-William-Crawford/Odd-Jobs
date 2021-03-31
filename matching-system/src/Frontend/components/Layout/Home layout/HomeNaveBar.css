@@ -1,0 +1,93 @@
+.NavbarItems{
+    background: rgb(38, 32, 88);
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 25px 50px;
+
+}
+
+.navbar-logo{
+    color: #FFFF;
+    justify-content: start;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    margin-top: 0px;
+}
+.logo{
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+}
+.fa-react{
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.nav-menu {
+    /*Menu bar*/
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    justify-content: end;
+    margin-top: 30px;
+}
+
+.nav-links {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links:hover{
+    background:  rgb(19, 196, 172);
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+
+}
+.nav-links-login {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-left: 1000px;
+    margin-left: 0;
+    width: 100%;
+}
+
+.nav-links-login:hover{
+    background: rgb(19, 196, 172);
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+}
+.nav-links-logout {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-left: 700px;
+}
+
+.nav-links-logout:hover{
+    background: #fff;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+}
+.fa-bars {
+    color: white;
+}
+
+.nav-links-mobile{
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+

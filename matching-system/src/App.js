@@ -1,34 +1,33 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import React from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 // import { Provider } from "react-redux";
-// import Home from './src/Frontend/src/components/pages/home.js';
+// import HomeNaveBar from './Frontend/components/pages/Home page/HomeNaveBar.js';
+import Login from './Frontend/components/pages/Login page/Login.js';
+import About from './Frontend/components/pages/Home page/aboutPage';
+import contactUs from './Frontend/components/pages/Home page/Contact/contactUs';
+import Register from './Frontend/components/pages/Register page/Register';
 
 function App() {
   return (
+      <Router>
+        <div className="App">
+          {/* <SearchBar/> */}
+          <Switch>
+            <Route exact path="/" component={About} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/login" component={Login} /> 
+            <Route exact path="/contact" component={contactUs} /> 
+            <Route exact path="/register" component={Register} /> 
+            
 
-      <div className="App">
-      {/* <Route exact path="/" component={Home} /> */}
-
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload"Hello again"".
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        
+          </Switch>        
+        </div>
+      </Router>
   
   );
 }
 
 export default App;
-

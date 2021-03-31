@@ -1,0 +1,11 @@
+.search-bar-p{
+  width: 700px;
+  /* background: rgb(94, 163, 165); */
+  height: 30px;
+  padding: 20px 50px;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%,-129%);
+}
