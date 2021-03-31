@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import HomeNaveBar from '../Home page/HomeNaveBar';
-import './Login.css';
+import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
+import SearchBar from './../../Layout/Search bar/SearchBar';
+import './Register.css';
 
 
-class Login extends Component{
+class Register extends Component{
   constructor(props) {
 
     super(props);
@@ -30,8 +31,10 @@ class Login extends Component{
       return (
         <Container>
         <HomeNaveBar/>
+        <SearchBar/>
+
           <div>
-            <Form className="login-form">
+            <Form className="register-form">
               <h1>Register</h1>
 
               <Form.Group controlId="formBasicEmail" className="txtb">
@@ -82,4 +85,4 @@ class Login extends Component{
 
 }
 
-export default Login;
+export default Register;

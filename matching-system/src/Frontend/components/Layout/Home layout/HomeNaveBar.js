@@ -30,7 +30,7 @@ class HomeNaveBar extends Component {
                 },
                 {
                     id:'2',
-                    title: 'Search',
+                    title: 'Inbox',
                     url: '',
                     cName: 'nav-links',
                 },
@@ -58,7 +58,7 @@ class HomeNaveBar extends Component {
                     cName: 'nav-links',
                 },
                 {
-                    title: 'Search',
+                    title: 'Inbox',
                     url: '',
                     cName: 'nav-links',
                 },

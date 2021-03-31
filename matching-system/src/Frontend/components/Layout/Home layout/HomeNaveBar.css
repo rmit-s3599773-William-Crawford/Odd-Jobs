@@ -1,9 +1,11 @@
 .NavbarItems{
     background: rgb(38, 32, 88);
-    height: 50px;
+    height: 35px;
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 25px 50px;
+
 }
 
 .navbar-logo{
@@ -12,7 +14,7 @@
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 .logo{
     margin-right: 10px;
