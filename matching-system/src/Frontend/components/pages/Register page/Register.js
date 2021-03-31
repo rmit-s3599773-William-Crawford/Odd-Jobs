@@ -50,35 +50,19 @@ class Login extends Component{
                  
                 />
               </Form.Group>
-
-              <Form.Group>
-                <Row className="acc-type">
-                  <Form.Label>Account:</Form.Label>
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Householder"
-                    name="accountType"
-                    value="Householder"
-                  
-                  />
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Work trader"
-                    name="accountType"
-                    value="WorkTrader"
-                    
-                  />
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Admin"
-                    name="accountType"
-                    value="Admin"
-                    
-                  />
-                </Row>
+              <Form.Group controlId="formBasicFirstName" className="txtb">
+                <Form.Control
+                  type="firstname"
+                  placeholder="First Name"
+                 
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicLastName" className="txtb">
+                <Form.Control
+                  type="lastname"
+                  placeholder="Last Name"
+                 
+                />
               </Form.Group>
 
               <Row>
