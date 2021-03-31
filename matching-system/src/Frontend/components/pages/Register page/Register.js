@@ -37,7 +37,7 @@ class Register extends Component{
             <Form className="register-form">
               <h1>Register</h1>
 
-              <Form.Group controlId="formBasicEmail" className="txtb">
+              <Form.Group controlId="formBasicEmail" className="txtbr">
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
@@ -46,21 +46,21 @@ class Register extends Component{
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword" className="txtb">
+              <Form.Group controlId="formBasicPassword" className="txtbr">
                 <Form.Control
                   type="password"
                   placeholder="Password"
                  
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicFirstName" className="txtb">
+              <Form.Group controlId="formBasicFirstName" className="txtbr">
                 <Form.Control
                   type="firstname"
                   placeholder="First Name"
                  
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicLastName" className="txtb">
+              <Form.Group controlId="formBasicLastName" className="txtbr">
                 <Form.Control
                   type="lastname"
                   placeholder="Last Name"
@@ -72,7 +72,7 @@ class Register extends Component{
                 <Button
                   variant="primary"
                   onClick={(event) => this.handleClick(event)}
-                  className="logbtn"
+                  className="registerbtn"
                 >
                   Register
                 </Button>

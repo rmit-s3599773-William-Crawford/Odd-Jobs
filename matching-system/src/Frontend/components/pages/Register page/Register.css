@@ -1,8 +1,8 @@
 .register-form{
     width: 380px;
     background: #cde0e2;
-    height: 490px;
-    padding: 70px 70px;
+    height: 460px;
+    padding: 50px 70px;
     border-radius: 10px;
     position: absolute;
     left: 50%;
@@ -11,7 +11,7 @@
   }
   .register-form h1{
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     color: #201e3b;
   }
   .acc-type{
@@ -19,12 +19,12 @@
       text-align: center;
       margin-left: 10px;
   }
-  .txtb{
+  .txtbr{
     border-bottom: 2px solid #272253;
     position: relative;
-    margin: 30px 0;
+    margin: 20px 0;
   }
-  .txtb input{
+  .txtbr input{
     font-size: 15px;
     color: #333;
     border: none;
