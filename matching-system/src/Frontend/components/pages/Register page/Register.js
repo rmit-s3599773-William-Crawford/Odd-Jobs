@@ -53,16 +53,16 @@ class Register extends Component{
                  
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicFirstName" className="txtbr">
+              <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
-                  type="firstname"
+                  type="text"
                   placeholder="First Name"
                  
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicLastName" className="txtbr">
+              <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
-                  type="lastname"
+                  type="text"
                   placeholder="Last Name"
                  
                 />
