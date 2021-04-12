@@ -3,16 +3,12 @@ import { FaLocationArrow, FaPhoneVolume, FaCalendarAlt  } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import './contactUs.css'
 
-
-
-
 class contactUs extends Component {
 
     render() {
         return (
             <>
                 <div className='bodypage'>
-                {/* <HomeNaveBar/> */}
                     <div className="contact-page">
                         <h2>Contact Us</h2>
                     
