@@ -1,8 +1,10 @@
 # Spring Boot Java and React JS Application start up
 
-This project uses Webpack alongside a Maven to build and run.
+This project uses Webpack alongside Maven to build and run.
 
 ## Available Scripts
+
+These scripts should be run from the root directory of the project.
 
 ### `mvn spring-boot:run`
 
