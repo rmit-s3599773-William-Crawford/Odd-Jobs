@@ -23,25 +23,33 @@ class HomeNaveBar extends Component {
             MenuItems = [
                
                 {
-                    id:'1',
+                    
                     title: 'About',
                     url: '/about',
                     cName: 'nav-links',
                 },
                 {
-                    id:'2',
+                   
                     title: 'Inbox',
                     url: '',
                     cName: 'nav-links',
                 },
                 {
-                    id:'3',
+                   
                     title: 'Contact us',
                     url: '/contact',
                     cName: 'nav-links',
                 },
+
                 {
-                    id:'4',
+                   
+                    title: ' Profile',
+                    url: '/profile',
+                    cName: 'nav-links',
+                },
+
+                {
+                   
                     title: 'Logout',
                     url: '/LogOut',
                     icon: <Icons.BsBoxArrowRight />,
@@ -67,6 +75,15 @@ class HomeNaveBar extends Component {
                     url: '/contact',
                     cName: 'nav-links',
                 },
+
+                
+                {
+                   
+                    title: ' Profile',
+                    url: '/profile',
+                    cName: 'nav-links',
+                },
+
                 {
                     title: 'Login',
                     url: '/login',

@@ -1,11 +1,21 @@
 .search-bar-p{
-  width: 700px;
-  /* background: rgb(94, 163, 165); */
-  height: 30px;
-  padding: 20px 50px;
+  top: 50%;
+  width:500px;
+  height: 35px;
   border-radius: 10px;
   position: absolute;
   left: 50%;
-  top: 15%;
-  transform: translate(-50%,-129%);
+  transform: translate(-50%,-80%);
+  background:#d48a8a;
+  background:rgba(75, 151, 165, 0.79);
+  border: 2px solid #645656;
+  padding: 2.5px 5px;
+  position: absolute;
+	margin: -271px 0 0 90px;
+  box-shadow:0 4px 9px rgba(0,0,0,.37);
+  -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
+  -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 20px
 }

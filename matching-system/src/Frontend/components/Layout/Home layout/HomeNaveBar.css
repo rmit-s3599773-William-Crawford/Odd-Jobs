@@ -1,5 +1,5 @@
 .NavbarItems{
-    background: rgb(38, 32, 88);
+    background:rgb(38, 32, 88);
     height: 35px;
     display: flex;
     align-items: center;
@@ -54,9 +54,8 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    margin-left: 1000px;
-    margin-left: 0;
-    width: 100%;
+    margin-left: 700px;
+    width: 80%;
 }
 
 .nav-links-login:hover{
