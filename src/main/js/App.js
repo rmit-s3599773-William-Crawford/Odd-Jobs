@@ -28,7 +28,7 @@ export class App extends Component {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/contact" component={contactUs} />
                         <Route exact path="/register" component={Register} />
-                        <Route exact path="/register" component={Profile} />
+                        <Route exact path="/profile" component={Profile} />
                     </Switch>
                 </div>
             </Router>
