@@ -4,14 +4,14 @@ This project uses Webpack alongside Maven to build and run.
 
 ## Install JDK and Maven
 
-JDK
+### JDK
 
 Install [Amazon Correto 11 JDK](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)
 Here is the direct link to the [Windows installer](https://corretto.aws/downloads/latest/amazon-corretto-11-x86-windows-jdk.msi)
 
 OpenJDK 11 is now installed, move on to installing Maven
 
-Maven
+### Maven
 
 Download and install [Maven](https://maven.apache.org/download.cgi). 
 You will want to download the Binary Archive.
