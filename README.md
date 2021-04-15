@@ -22,7 +22,7 @@ Now you have to edit the "Path" to include Maven.
 On Windows 10, use the search bar and search for "Edit environment variables for your account" and open that menu.
 You will see User variables and System variables, in the User variables, select the "Path" variable, and then click the "Edit" button.
 
-Another menu will pop up with a list of directories. Click "New" to add a new variable, and past the location of the bin folder of the Maven download. 
+Another menu will pop up with a list of directories. Click "New" to add a new variable, and paste the location of the bin folder of the Maven download. 
 For example: C:\Users\{user}\Documents\Maven\apache-maven-3.8.1\bin
 
 You can now run Maven goals through powershell and inside Visual Studio Code terminals, use "mvn -v" to confirm
