@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/main/js/App.js',
+    entry: './frontend/src/App.js',
     devtool: 'source-map',
     cache: true,
     mode: 'development',
