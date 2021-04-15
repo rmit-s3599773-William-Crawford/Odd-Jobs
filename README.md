@@ -17,7 +17,7 @@ Download and install [Maven](https://maven.apache.org/download.cgi).
 You will want to download the Binary Archive.
 Extract the zip folder anywhere you like, C:\Users\{user}\Documents\Maven is fine.
 
-Now you have to edit the "Path" to include Maven.
+Now you have to edit the user "Path" variable to include Maven.
 
 On Windows 10, use the search bar and search for "Edit environment variables for your account" and open that menu.
 You will see User variables and System variables, in the User variables, select the "Path" variable, and then click the "Edit" button.
