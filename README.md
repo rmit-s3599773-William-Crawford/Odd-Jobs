@@ -31,6 +31,11 @@ You can now run Maven goals through powershell and inside Visual Studio Code ter
 
 These scripts should be run from the root directory of the project (Odd-Jobs/).
 
+### `npm install`
+
+This only has to be run once unless a dependency in package.json is changed, removed or added. 
+This installs node dependencies for the frontend in /node_modules which is ignored purposefully by git.
+
 ### `mvn spring-boot:run`
 
 This builds and runs the Spring Boot application for the back end. 
