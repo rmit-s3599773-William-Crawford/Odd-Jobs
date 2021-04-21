@@ -1,4 +1,4 @@
-package com.oddjobs.matchmakingsystem.controllers;
+package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
@@ -8,30 +8,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.Key;
+
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/user")
+@CrossOrigin
 public class UserController {
     private UserRepository userRepository;
+    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
 
     @Autowired
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/user/save")
+    @PostMapping("/save")
     public User saveUser(@RequestBody User user) {
+//        String kind = "User";
+//        String name = "firstuser1";
+//        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
+//
+//        Entity newUser = Entity.newBuilder(userKey)
+//                .set("firstName", user.getFirstName())
+//                .set("lastName", user.getLastName())
+//                .set("email", user.getEmail())
+//                .set("username", user.getUsername())
+//                .set("password", user.getPassword())
+//                .build();
+//
+//        datastore.put(newUser);
+
         return this.userRepository.save(user);
     }
 
-    @GetMapping("/user/all")
+    @GetMapping("/all")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(
                 this.userRepository.findAll()
         );
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long id) {
         User user = this.userRepository.findById(id).orElseThrow(
                 ()-> new ResourceNotFoundException("User not found")
@@ -40,7 +62,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/{id}")
     public User updateUser(@RequestBody User newUser, @PathVariable(value = "id") Long id) {
         return this.userRepository.findById(id)
                 .map(user-> {
@@ -57,7 +79,7 @@ public class UserController {
                 });
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeUser(@PathVariable(value = "id") Long id) {
         User user = this.userRepository.findById(id).orElseThrow(
                 ()-> new ResourceNotFoundException("User not found" + id)

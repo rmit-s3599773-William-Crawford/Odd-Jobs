@@ -32,7 +32,7 @@ class Register extends Component{
   onSubmit(e) {
     e.preventDefault();
     let newUser = this.state;
-    axios.post('/user/save', newUser)
+    axios.post("/api/user/save", newUser)
   }
   
   render() {
@@ -87,7 +87,7 @@ class Register extends Component{
               <Row>
                 <Button
                     type="submit"
-                    value="Submit"
+                    value="Register"
                   variant="primary"
                   // onClick={(event) => this.handleClick(event)}
                   className="registerbtn"
