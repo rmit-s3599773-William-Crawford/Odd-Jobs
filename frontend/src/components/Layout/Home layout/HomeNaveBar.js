@@ -30,7 +30,7 @@ class HomeNaveBar extends Component {
                 {
                    
                     title: 'Inbox',
-                    url: '',
+                    url: '/inbox',
                     cName: 'nav-links',
                 },
                 {
@@ -44,6 +44,12 @@ class HomeNaveBar extends Component {
                    
                     title: ' Profile',
                     url: '/profile',
+                    cName: 'nav-links',
+                },
+
+                {
+                    title: 'Post job',
+                    url: '/job',
                     cName: 'nav-links',
                 },
 
@@ -66,7 +72,7 @@ class HomeNaveBar extends Component {
                 },
                 {
                     title: 'Inbox',
-                    url: '',
+                    url: '/inbox',
                     cName: 'nav-links',
                 },
 
@@ -75,12 +81,17 @@ class HomeNaveBar extends Component {
                     url: '/contact',
                     cName: 'nav-links',
                 },
-
                 
                 {
                    
                     title: ' Profile',
                     url: '/profile',
+                    cName: 'nav-links',
+                },
+
+                {
+                    title: 'Post job',
+                    url: '/job',
                     cName: 'nav-links',
                 },
 

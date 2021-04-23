@@ -1,3 +1,4 @@
+import './index.css';
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -6,7 +7,7 @@ import Login from "./components/pages/Login page/Login";
 import contactUs from "./components/pages/Home page/Contact/contactUs";
 import Register from "./components/pages/Register page/Register";
 import Profile from "./components/pages/Profile page/Profile";
-import './index.css';
+import Job from "./components/pages/JobPosting Page/job";
   
 
 
@@ -28,8 +29,10 @@ export class App extends Component {
                             <Route exact path="/about" component={About} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/contact" component={contactUs} />
+                            <Route exact path="/inbox" component={contactUs} />
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/profile" component={Profile} />
+                            <Route exact path="/job" component={Job} />
                         </Switch>
                     </div>
                 </Router>

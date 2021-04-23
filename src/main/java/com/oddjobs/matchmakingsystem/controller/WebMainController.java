@@ -34,4 +34,15 @@ public class WebMainController {
     public String profile() {
         return "profile";
     }
+
+    
+    @RequestMapping(value = "/job")
+    public String job() {
+        return "job";
+    }
+     
+    @RequestMapping(value = "/inbox")
+    public String inbox() {
+        return "inbox";
+    }
 }
