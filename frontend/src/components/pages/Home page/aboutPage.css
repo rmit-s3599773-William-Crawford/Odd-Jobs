@@ -31,7 +31,7 @@ body{
 }
 .about-section{
   /*PICTURE*/
-  background: url(HomePicLocation.png) no-repeat left;
+  background: url(Handshake.png) no-repeat left;
   background-size: 65%;
   background-color: #fdfdfd;
   overflow: hidden;
