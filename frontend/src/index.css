@@ -15,7 +15,8 @@ code {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background-color: rgb(38, 32, 88);
+	background: linear-gradient(120deg,#34dbb7,#8e44ad,#3498db);
+
 	color: white;
 	text-align: center;
 }
