@@ -9,13 +9,12 @@ class HomeNaveBar extends Component {
         this.state = {
             click: false,
             loggedIn: this.props.loggedIn,
-            business: this.props.business
         }
     }
     
-    handleClick = () => {
-        this.setState({click: !this.state.click})
-    }
+    // handleClick = () => {
+    //     this.setState({click: !this.state.click})
+    // }
 
     render() {
         var MenuItems = []
@@ -70,6 +69,7 @@ class HomeNaveBar extends Component {
                     url: '',
                     cName: 'nav-links',
                 },
+
                 {
                     title: 'Contact us',
                     url: '/contact',

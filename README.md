@@ -15,7 +15,7 @@ OpenJDK 11 is now installed, move on to installing Maven
 
 Download and install [Maven](https://maven.apache.org/download.cgi). 
 You will want to download the Binary Archive.
-Extract the zip folder anywhere you like, C:\Users\{user}\Documents\Maven is fine.
+Extract the zip folder anywhere you like, C:\Users\\{user}\Documents\Maven is fine.
 
 Now you have to edit the user "Path" variable to include Maven.
 
@@ -23,13 +23,18 @@ On Windows 10, use the search bar and search for "Edit environment variables for
 You will see User variables and System variables, in the User variables, select the "Path" variable, and then click the "Edit" button.
 
 Another menu will pop up with a list of directories. Click "New" to add a new variable, and paste the location of the bin folder of the Maven download. 
-For example: C:\Users\{user}\Documents\Maven\apache-maven-3.8.1\bin
+For example: C:\Users\\{user}\Documents\Maven\apache-maven-3.8.1\bin
 
 You can now run Maven goals through powershell and inside Visual Studio Code terminals, use "mvn -v" to confirm
 
 ## Available Scripts
 
 These scripts should be run from the root directory of the project (Odd-Jobs/).
+
+### `npm install`
+
+This only has to be run once unless a dependency in package.json is changed, removed or added. 
+This installs node dependencies for the frontend in /node_modules which is ignored purposefully by git.
 
 ### `mvn spring-boot:run`
 
