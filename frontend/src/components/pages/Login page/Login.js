@@ -30,13 +30,7 @@ class Login extends Component{
   onSubmit(e) {
     e.preventDefault();
     let userToLogIn = this.state;
-    axios.post("/login", {}, {
-      auth: {
-        username: userToLogIn.username,
-        password: userToLogIn.password,
-        roles: userToLogIn.roles
-      }
-    })
+    axios.post("/api/user/login", userToLogIn)
   }
  
   

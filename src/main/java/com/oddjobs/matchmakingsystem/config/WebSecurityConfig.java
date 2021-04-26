@@ -21,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.logout().disable();
         http.formLogin().disable();
+
         http
                 .authorizeRequests()
                 .antMatchers("/built/bundle.js",
@@ -28,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/",
                         "/about",
                         "/contact",
-                        "/register",
-                        "/**"
+                        "/register"
+//                        ,"/**"
                 )
                 .permitAll()
                 .anyRequest().authenticated()

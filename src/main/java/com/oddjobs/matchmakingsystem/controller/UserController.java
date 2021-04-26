@@ -29,21 +29,28 @@ public class UserController {
 
     @PostMapping("/save")
     public User saveUser(@RequestBody User user) {
-//        String kind = "User";
-//        String name = "firstuser1";
-//        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
-//
-//        Entity newUser = Entity.newBuilder(userKey)
-//                .set("firstName", user.getFirstName())
-//                .set("lastName", user.getLastName())
-//                .set("email", user.getEmail())
-//                .set("username", user.getUsername())
-//                .set("password", user.getPassword())
-//                .build();
-//
-//        datastore.put(newUser);
+        String kind = "User";
+        String name = user.getEmail();
+        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
+
+        Entity newUser = Entity.newBuilder(userKey)
+                .set("firstName", user.getFirstName())
+                .set("lastName", user.getLastName())
+                .set("email", user.getEmail())
+                .set("username", user.getUsername())
+                .set("password", user.getPassword())
+                .build();
+
+        datastore.put(newUser);
 
         return this.userRepository.save(user);
+    }
+
+    @PostMapping("/login")
+    public User loginUser(@RequestBody User user) {
+        User userToLogIn = user;
+        System.out.println("User to Log In: " + user.toString());
+        return userToLogIn;
     }
 
     @GetMapping("/all")
@@ -88,5 +95,7 @@ public class UserController {
         this.userRepository.delete(user);
         return ResponseEntity.ok().build();
     }
+
+
 
 }
