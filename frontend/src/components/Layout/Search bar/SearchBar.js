@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import * as ReactBootstrap from "react-bootstrap";
 import {Container} from "react-bootstrap";
-
 import './SearchBar.css'
 // import "bootstrap/dist/css/bootstrap.css";
 
@@ -12,8 +11,6 @@ class SearchBar extends Component{
         return (
             
          <Container>
-
-          
                     <div className="search-bar-p" > 
                         <ReactBootstrap.FormControl 
                             id="searchBar"

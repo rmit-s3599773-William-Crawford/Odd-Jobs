@@ -9,8 +9,6 @@ import Register from "./components/pages/Register page/Register";
 import Profile from "./components/pages/Profile page/Profile";
 import Job from "./components/pages/JobPosting Page/job";
   
-
-
 export class App extends Component {
     constructor(props) {
         super(props);
@@ -37,8 +35,7 @@ export class App extends Component {
                     </div>
                 </Router>
                     <div class="footer">
-                        MatchMe © 
-                        OddJobs Group 6
+                       ©OddJobs Group 6
                     </div>
           </>
         );
