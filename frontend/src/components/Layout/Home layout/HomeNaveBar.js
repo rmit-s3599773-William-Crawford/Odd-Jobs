@@ -111,7 +111,7 @@ class HomeNaveBar extends Component {
                 
                     <h1 className="navbar-logo">
                         <img className="logo" src={Logo} alt="description of " />
-                        MatchMe
+                        OddJobs
                     </h1>
                 </a>
             

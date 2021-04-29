@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as ReactBootstrap from "react-bootstrap";
 import {Container} from "react-bootstrap";
+import { ImSearch } from 'react-icons/im';
 
 import './SearchBar.css'
 // import "bootstrap/dist/css/bootstrap.css";
@@ -12,8 +13,6 @@ class SearchBar extends Component{
         return (
             
          <Container>
-
-          
                     <div className="search-bar-p" > 
                         <ReactBootstrap.FormControl 
                             id="searchBar"
@@ -31,8 +30,8 @@ class SearchBar extends Component{
                             <option value="babyS">Babysitting</option>
                             <option value="DogW">Dog walker</option>
                         </select>
-
-                        <ReactBootstrap.Button type="submit">Search</ReactBootstrap.Button>
+                      
+                        <ReactBootstrap.Button type="submit" className="searchbtn"><ImSearch/></ReactBootstrap.Button>
                     </div>
             {/* </div> */}
 </Container>

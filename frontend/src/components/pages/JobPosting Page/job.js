@@ -39,7 +39,7 @@ class Job extends Component{
               <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
                   type="text"
-                  placeholder="Job Title"
+                  placeholder="Post a Job"
                 
                 />
                 <Form.Text className="text-muted"></Form.Text>
@@ -55,7 +55,7 @@ class Job extends Component{
               <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
                   type="text"
-                  placeholder="Job Category (eg. trades, construction, design, gardening, business/admin)"
+                  placeholder="Job Category"
                 
                 />
               </Form.Group>

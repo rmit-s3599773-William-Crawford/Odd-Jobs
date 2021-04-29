@@ -15,7 +15,7 @@ class About extends Component {
                     <h1 style={{color:'black'}}>Find jobs trade in your area</h1>
                     <p className="text">
                     Need to replace a flat tire? or fixing something in your household even if you want a light bulb to be change
-                    Our website MatchMe offers YOU to find any services given by our registered job traders! Join us for free all
+                    Our website OddJobs offers YOU to find any services given by our registered job traders! Join us for free all
                     it takes is one word to find what you are looking for!
                     </p>
                     <div className="skills">
