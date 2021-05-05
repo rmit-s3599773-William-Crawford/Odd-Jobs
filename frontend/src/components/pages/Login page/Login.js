@@ -29,8 +29,14 @@ class Login extends Component{
   //Attempts to log in the user
   onSubmit(e) {
     e.preventDefault();
-    let userToLogIn = this.state;
-    axios.post("/api/user/login", userToLogIn)
+    axios({
+      method: "post",
+      url:'/login',
+      params:{
+        username: this.state.username,
+        password: this.state.password
+      }
+    })
   }
  
   

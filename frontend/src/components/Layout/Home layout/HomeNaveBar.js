@@ -56,7 +56,7 @@ class HomeNaveBar extends Component {
                 {
                    
                     title: 'Logout',
-                    url: '/LogOut',
+                    url: '/logout',
                     icon: <Icons.BsBoxArrowRight />,
                     cName: 'nav-links-logout',
                 }
@@ -96,7 +96,7 @@ class HomeNaveBar extends Component {
                 },
 
                 {
-                    title: 'Login',
+                    title: 'Log In',
                     url: '/login',
                     icon: <Icons.BsPeopleCircle />,
                     cName: 'nav-links-login',
