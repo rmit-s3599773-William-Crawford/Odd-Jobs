@@ -7,6 +7,7 @@ import Login from "./components/pages/Login page/Login";
 import contactUs from "./components/pages/Home page/Contact/contactUs";
 import Register from "./components/pages/Register page/Register";
 import Profile from "./components/pages/Profile page/Profile";
+import Edit_Profile from "./components/pages/Profile page/Edit_Profile";
 import Job from "./components/pages/JobPosting Page/job";
   
 export class App extends Component {
@@ -31,6 +32,8 @@ export class App extends Component {
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/job" component={Job} />
+                            <Route exact path="/profile/Edit" component={Edit_Profile} />
+
                         </Switch>
                     </div>
                 </Router>

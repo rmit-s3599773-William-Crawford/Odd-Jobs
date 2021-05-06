@@ -15,6 +15,7 @@ import './Profile.css';
             fullname:'',
             address:'',
             errorMsg:'',
+            phone:''
 
         }
     }
@@ -35,6 +36,9 @@ import './Profile.css';
                                 <td> Email</td>
                                 <td> Full name</td>
                                 <td>Personal address</td>
+                                <td>Phone</td>
+                                <td>Expertise/Field</td>
+
                             </tr>
                         </thead>
                         <tbody>

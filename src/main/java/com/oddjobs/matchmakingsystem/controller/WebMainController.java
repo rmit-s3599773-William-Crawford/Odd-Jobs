@@ -45,4 +45,9 @@ public class WebMainController {
     public String inbox() {
         return "inbox";
     }
+
+    @RequestMapping(value = "/profile/Edit")
+    public String edit() {
+        return "edit_profile";
+    }
 }
