@@ -1,5 +1,5 @@
 .NavbarItems{
-    background:rgb(38, 32, 88);
+    background: linear-gradient(120deg,#34dbb7,#8e44ad,#3498db);
     height: 35px;
     display: flex;
     align-items: center;
@@ -44,7 +44,7 @@
 }
 
 .nav-links:hover{
-    background:  rgb(19, 196, 172);
+    background: linear-gradient(120deg,#34dbb7,#8e44ad,#3498db);
     border-radius: 4px;
     transition: all 0.2s ease-out;
     text-decoration: none;
@@ -54,12 +54,12 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    margin-left: 700px;
+    margin-left: 630px;
     width: 80%;
 }
 
 .nav-links-login:hover{
-    background: rgb(19, 196, 172);
+    background: linear-gradient(120deg,#34dbb7,#8e44ad,#3498db);
     border-radius: 4px;
     transition: all 0.2s ease-out;
     text-decoration: none;

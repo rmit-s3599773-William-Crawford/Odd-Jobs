@@ -29,14 +29,26 @@ describe("HomeNaveBar Unit Test", () => {
         expect(component.find('ul > li > a').at(2).prop('href')).toBe('/contact');
     });
 
-    //pass
-    it('should render to Profile  page', () => {
+
+
+      //pass
+      it('should render to Profile  page', () => {
         const component = mount(<HomeNaveBar />);
         const button = component.find('li').first().children(0)
         console.log(button)
         button.simulate('click');
 
         expect(component.find('ul > li > a').at(3).prop('href')).toBe('/profile');
+    });
+    
+     //pass
+     it('should render to job  page', () => {
+        const component = mount(<HomeNaveBar />);
+        const button = component.find('li').first().children(0)
+        console.log(button)
+        button.simulate('click');
+
+        expect(component.find('ul > li > a').at(4).prop('href')).toBe('/job');
     });
 
     //pass
@@ -46,6 +58,6 @@ describe("HomeNaveBar Unit Test", () => {
         console.log(button)
         button.simulate('click');
 
-        expect(component.find('ul > li > a').at(4).prop('href')).toBe('/login');
+        expect(component.find('ul > li > a').at(5).prop('href')).toBe('/login');
     });
 });
