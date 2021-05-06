@@ -52,7 +52,7 @@ import './Profile.css';
                     <br/>
                     <Button
                         className='btnEdt'
-                        href={'/profile/Edit'}
+                        href={'/editprofile'}
                         style={{ marginRight: '10px' }}>Edit</Button>
                     <Button
                         className='btnDel'

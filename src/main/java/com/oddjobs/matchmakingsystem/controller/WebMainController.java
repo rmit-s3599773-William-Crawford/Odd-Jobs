@@ -2,6 +2,7 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class WebMainController {
@@ -34,7 +35,6 @@ public class WebMainController {
     public String profile() {
         return "profile";
     }
-
     
     @RequestMapping(value = "/job")
     public String job() {
@@ -46,7 +46,7 @@ public class WebMainController {
         return "inbox";
     }
 
-    @RequestMapping(value = "/profile/Edit")
+    @RequestMapping(value = "/editprofile")
     public String edit() {
         return "edit_profile";
     }
