@@ -56,5 +56,5 @@
 .btnDel:hover{
   background-color: transparent;
   color: rgb(219, 52, 80);
-    border: solid rgb(219, 52, 80);
+  border: solid rgb(219, 52, 80);
 }

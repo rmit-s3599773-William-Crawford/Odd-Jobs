@@ -1,7 +1,7 @@
 .edit-form{
-    width: 370px;
+    width: 470px;
     background: #cde0e2;
-    height: 430px;
+    height: 580px;
     padding: 50px 70px;
     border-radius: 10px;
     position: absolute;
@@ -14,11 +14,7 @@
     margin-bottom: 30px;
     color: #201e3b;
   }
-  .acc-type{
-      color: black;
-      text-align: center;
-      margin-left: 10px;
-  }
+ 
   .txtbEdit{
     border-bottom: 2px solid #272253;
     position: relative;
@@ -45,6 +41,12 @@
     outline: none;
     cursor: pointer;
     transition: .5s;
+    
+    margin-top: 10px;
+    text-align: center;
+    font-size: 45px;
+    color: rgb(255, 251, 251);
+
   }
   .Editbtn:hover{
     background-position: right;
