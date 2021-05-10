@@ -2,8 +2,11 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
+import com.oddjobs.matchmakingsystem.model.UserToken;
 import com.oddjobs.matchmakingsystem.repository.UserRepository;
 
+import com.oddjobs.matchmakingsystem.service.UserService;
+import com.oddjobs.matchmakingsystem.service.UserTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,21 +17,34 @@ import org.springframework.web.bind.annotation.*;
 //import com.google.cloud.datastore.Key;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin
 public class UserController {
-    private UserRepository userRepository;
-//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
 
     @Autowired
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository; //Deprecated
 
-    @PostMapping("/save")
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserTokenService userTokenService;
+
+//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+
+    @PostMapping("/register")
     public User saveUser(@RequestBody User user) {
+        System.out.println("Register User");
+
+        userService.registerUser(user);
+
+
+        return user;
+
+
 //        String kind = "User";
 //        String name = user.getEmail();
 //        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
@@ -42,7 +58,6 @@ public class UserController {
 //                .build();
 //
 //        datastore.put(newUser);
-        return this.userRepository.save(user);
     }
 
     @GetMapping("/all")

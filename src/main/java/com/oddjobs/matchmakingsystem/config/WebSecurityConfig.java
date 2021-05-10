@@ -1,9 +1,6 @@
 package com.oddjobs.matchmakingsystem.config;
 
-//import com.google.cloud.datastore.Datastore;
-//import com.google.cloud.datastore.DatastoreOptions;
-//import com.google.cloud.datastore.Entity;
-//import com.google.cloud.datastore.Key;
+import com.oddjobs.matchmakingsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +8,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,21 +18,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+    @Autowired
+    private UserService userService;
 
-//    @Autowired
-//    private CustomUserDetailsService customUserDetailsService;
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(customUserDetailsService);
-//    }
-//
-//    @Override
-//    @Bean(BeanIds.AUTHENTICATION_MANAGER)
-//    protected AuthenticationManager authenticationManager() throws Exception {
-//        return super.authenticationManager();
-//    }
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -55,7 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/about",
                         "/contact",
                         "/register",
-                        "/h2"
+                        "/api/user/register",
+                        "/h2" //TODO Must be removed for production
 //                        ,"/**"
                 )
                 .permitAll()
@@ -69,16 +58,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
+    @Autowired
+    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
     }
+
+//    @Bean
+//    @Override
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user =
+//                User.withDefaultPasswordEncoder()
+//                        .username("user")
+//                        .password("password")
+//                        .roles("USER")
+//                        .build();
+//
+//        return new InMemoryUserDetailsManager(user);
+//    }
 }

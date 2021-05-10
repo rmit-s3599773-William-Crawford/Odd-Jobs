@@ -16,7 +16,6 @@ class Register extends Component{
       firstName:"",
       lastName: "",
       email: "",
-      username: "",
       password: ""
     };
 
@@ -32,7 +31,7 @@ class Register extends Component{
   onSubmit(e) {
     e.preventDefault();
     let newUser = this.state;
-    axios.post("/api/user/save", newUser)
+    axios.post("/api/user/register", newUser)
   }
   
   render() {
