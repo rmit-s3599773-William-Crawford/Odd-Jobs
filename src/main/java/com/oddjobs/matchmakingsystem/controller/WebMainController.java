@@ -35,7 +35,6 @@ public class WebMainController {
         return "profile";
     }
 
-    
     @RequestMapping(value = "/job")
     public String job() {
         return "job";

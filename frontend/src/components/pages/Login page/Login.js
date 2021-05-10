@@ -29,12 +29,12 @@ class Login extends Component{
   //Attempts to log in the user
   onSubmit(e) {
     e.preventDefault();
-    let userToLogIn = this.state;
-    axios.post("/login", {}, {
-      auth: {
-        username: userToLogIn.username,
-        password: userToLogIn.password,
-        roles: userToLogIn.roles
+    axios({
+      method: "post",
+      url:'/login',
+      params:{
+        username: this.state.username,
+        password: this.state.password
       }
     })
   }

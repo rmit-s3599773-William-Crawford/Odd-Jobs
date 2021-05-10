@@ -17,7 +17,7 @@ public class UserTests {
 
     @Test
     public void testSaveUser(){
-        User user = new User("John","Doe","john.doe@email.com","johhny","strong-password");
+        User user = new User("John","Doe","john.doe@email.com","strong-password");
         userRepository.save(user);
         userRepository.findById(new Long(1))
                 .map(newUser ->{
@@ -28,8 +28,8 @@ public class UserTests {
 
     @Test
     public void getUser(){
-        User user = new User("John","Doe","john.doe@email.com","johhny","strong-password");
-        User user2 = new User("Daniel","Marcus","daniel@daniel.com","danie","super_strong_password");
+        User user = new User("John","Doe","john.doe@email.com","strong-password");
+        User user2 = new User("Daniel","Marcus","daniel@daniel.com","super_strong_password");
         userRepository.save(user);
 
         userRepository.save(user2);
@@ -44,8 +44,8 @@ public class UserTests {
 
     @Test
     public void getUsers(){
-        User user = new User("John","Doe","john.doe@email.com","johhny","strong-password");
-        User user2 = new User("Daniel","Marcus","daniel@daniel.com","danie","super_strong_password");
+        User user = new User("John","Doe","john.doe@email.com","strong-password");
+        User user2 = new User("Daniel","Marcus","daniel@daniel.com","super_strong_password");
         userRepository.save(user);
         userRepository.save(user2);
 
@@ -54,7 +54,7 @@ public class UserTests {
 
     @Test
     public void deleteUser(){
-        User user = new User("John","Doe","john.doe@email.com","johhny","strong-password");
+        User user = new User("John","Doe","john.doe@email.com","strong-password");
         userRepository.save(user);
         userRepository.delete(user);
         Assert.assertTrue(userRepository.findAll().isEmpty());
