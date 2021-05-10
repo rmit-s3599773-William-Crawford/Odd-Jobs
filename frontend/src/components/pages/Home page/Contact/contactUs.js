@@ -52,7 +52,7 @@ class contactUs extends Component {
                 <div class="bottom-text-return">
                     <a href="/about" style={{ textDecoration: "none" }}>
                     {" "}
-                    Return to MatchMe{" "}
+                    Return to OddJobs {" "}
                     </a>
                 </div>
           </>
