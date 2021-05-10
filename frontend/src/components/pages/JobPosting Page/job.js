@@ -13,9 +13,10 @@ class Job extends Component{
     super(props);
     this.state = {
       id:"",
-      username: "",
-      password: "",
-      account: ""
+      title: "",
+      description: "",
+      classification: "",
+      location: "",
     };
  
     this.onChange = this.onChange.bind(this);
@@ -55,7 +56,7 @@ class Job extends Component{
               <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
                   type="text"
-                  placeholder="Job Category"
+                  placeholder="Job Classification"
                 
                 />
               </Form.Group>
