@@ -32,11 +32,12 @@ public class UserService implements UserDetailsService {
         user.setPassword(encryptedPassword);
 
         User registeredUser = userRepository.save(user);
-        UserToken userToken = new UserToken(user);
+        // user.setEnabled(true);
 
+        UserToken userToken = new UserToken(user);
         userTokenService.saveUserToken(userToken);
 
-        //Skip third party confirmation
+        // Skip third party confirmation
         confirmUser(userToken);
     }
 

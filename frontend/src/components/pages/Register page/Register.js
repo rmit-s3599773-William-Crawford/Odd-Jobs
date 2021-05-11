@@ -29,11 +29,14 @@ class Register extends Component{
 
   //Adds a user to the backend repository using data grabbed the component state
   onSubmit(e) {
-    e.preventDefault();
-    let newUser = this.state;
-    axios.post("/api/user/register", newUser)
+      e.preventDefault();
+      let newUser = this.state;
+      console.log(newUser);
+      axios.post("/api/user/register", newUser)
+      alert("Account successfully created")
+      window.history.back()
   }
-  
+
   render() {
       return (
         <Container>
@@ -51,6 +54,7 @@ class Register extends Component{
                   placeholder="Enter email"
                   value={this.state.email}
                   onChange={this.onChange}
+                  required
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
@@ -62,6 +66,7 @@ class Register extends Component{
                   placeholder="Password"
                   value={this.state.password}
                   onChange={this.onChange}
+                  required
                 />
               </Form.Group>
               <Form.Group controlId="formBasicFirstName" className="txtbr">
@@ -71,6 +76,7 @@ class Register extends Component{
                   placeholder="First Name"
                   value={this.state.firstName}
                   onChange={this.onChange}
+                  required
                 />
               </Form.Group>
               <Form.Group controlId="formBasicLastName" className="txtbr">
@@ -80,16 +86,16 @@ class Register extends Component{
                   placeholder="Last Name"
                   value={this.state.lastName}
                   onChange={this.onChange}
+                  required
                 />
               </Form.Group>
 
               <Row>
                 <Button
-                    type="submit"
-                    value="Register"
-                  variant="primary"
-                  // onClick={(event) => this.handleClick(event)}
                   className="registerbtn"
+                  type="submit"
+                  value="Register"
+                  variant="primary"
                 >
                   Register
                 </Button>

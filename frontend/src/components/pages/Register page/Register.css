@@ -45,6 +45,10 @@
     outline: none;
     cursor: pointer;
     transition: .5s;
+    margin: 10px;
+    text-align: center;
+    font-size: 20px;
+
   }
   .registerbtn:hover{
     background-position: right;

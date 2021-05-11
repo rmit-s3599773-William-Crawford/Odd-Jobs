@@ -28,6 +28,7 @@ class Login extends Component{
 
   //Attempts to log in the user
   onSubmit(e) {
+    console.log(this.state);
     e.preventDefault();
     axios({
       method: "post",
@@ -37,7 +38,11 @@ class Login extends Component{
         password: this.state.password
       }
     })
+    alert("Successfully Loggedin");
+    window.location.replace("http://localhost:8080/about");
+
   }
+
  
   
   render() {
@@ -46,7 +51,7 @@ class Login extends Component{
         <HomeNaveBar/>
         <SearchBar/>
           <div>
-            <Form className="login-form" onSubmit={this.onSubmit}>
+            <Form className="login-form"  onSubmit={this.onSubmit} >
               <h1>Login</h1>
 
               <Form.Group controlId="formBasicEmail" className="txtb">
@@ -56,6 +61,7 @@ class Login extends Component{
                     placeholder="Enter email"
                     value={this.state.username}
                     onChange={this.onChange}
+                    required
                  
                 />
                 <Form.Text className="text-muted"></Form.Text>
@@ -68,39 +74,18 @@ class Login extends Component{
                     placeholder="Password"
                     value={this.state.password}
                     onChange={this.onChange}
+                    required
                  
                 />
               </Form.Group>
 
-              <Form.Group>
-                <Row className="acc-type">
-                  <Form.Label>Account:</Form.Label>
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Householder"
-                    name="accountType"
-                    value="Householder"
-                  
-                  />
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Work trader"
-                    name="accountType"
-                    value="WorkTrader"
-                    
-                  />
-                </Row>
-              </Form.Group>
-
               <Row>
                 <Button
-                    type="submit"
-                    value="Sign in"
-                  variant="primary"
-                  // onClick={(event) => this.handleClick(event)}
                   className="logbtn"
+                  type="submit"
+                  value="Sign in"
+                  variant="primary"
+
                 >
                   Login
                 </Button>
