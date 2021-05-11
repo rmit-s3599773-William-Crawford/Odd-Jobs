@@ -65,4 +65,34 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException(MessageFormat.format("User {0} cannot be found.", email));
         }
     }
+
+    public String getUserDetailByIdAndField(Long id, String value) {
+
+        switch (value) {
+            case "all":
+                return userRepository.findById(id).get().toString();
+            case "username":
+            case "email":
+                return userRepository.findById(id).get().getUsername();
+            case "firstname":
+                return userRepository.findById(id).get().getFirstName();
+            case "lastname":
+                return userRepository.findById(id).get().getLastName();
+            case "name":
+                String name;
+                name = userRepository.findById(id).get().getFirstName()
+                        + " "
+                        + userRepository.findById(id).get().getLastName();
+                return name;
+            case "expertise":
+                return userRepository.findById(id).get().getExpertise();
+            case "address":
+                return userRepository.findById(id).get().getAddress();
+            case "phone":
+                return userRepository.findById(id).get().getPhone();
+        }
+        return "Value " + value + " is undefined";
+    }
+
+
 }

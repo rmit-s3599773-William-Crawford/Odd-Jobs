@@ -3,6 +3,7 @@ import {Container, Button} from "react-bootstrap";
 import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Profile.css';
+import axios from "axios";
 
 
      class Profile extends Component{
@@ -33,8 +34,8 @@ import './Profile.css';
                     <table style={{ width: '700px' }} >
                         <thead>
                             <tr>
-                                <td> Email</td>
-                                <td> Full name</td>
+                                <td>Email</td>
+                                <td>Full name</td>
                                 <td>Personal address</td>
                                 <td>Phone</td>
                                 <td>Expertise/Field</td>
