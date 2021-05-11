@@ -9,6 +9,8 @@ import com.oddjobs.matchmakingsystem.service.UserService;
 import com.oddjobs.matchmakingsystem.service.UserTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 //import com.google.cloud.datastore.Datastore;
@@ -65,6 +67,17 @@ public class UserController {
         return ResponseEntity.ok(
                 this.userRepository.findAll()
         );
+    }
+
+    @GetMapping("/current/username")
+    public ResponseEntity<String> getCurrentUserUsername() {
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        String username;
+        username = ((UserDetails)principal).getUsername();
+
+        return ResponseEntity.ok(username);
     }
 
     @GetMapping("/{id}")

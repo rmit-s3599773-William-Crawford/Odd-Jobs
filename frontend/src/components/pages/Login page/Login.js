@@ -37,10 +37,10 @@ class Login extends Component{
         username: this.state.username,
         password: this.state.password
       }
+    }).finally(()=> {
+      alert("Successfully Loggedin");
+      window.location.replace("http://localhost:8080/about");
     })
-    alert("Successfully Loggedin");
-    window.location.replace("http://localhost:8080/about");
-
   }
 
  
