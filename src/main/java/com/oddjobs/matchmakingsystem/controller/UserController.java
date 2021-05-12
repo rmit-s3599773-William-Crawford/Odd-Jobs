@@ -110,6 +110,20 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/current/delete")
+    public ResponseEntity<Void> deleteCurrentUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long currentUserId;
+        currentUserId = ((User)principal).getId();
+
+        userService.deleteUserDetailsById(currentUserId);
+
+        //Force log out after deleting the user.
+        SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false);
+
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/current")
     public ResponseEntity<String> getCurrentUserDetails() {
         String userDetails;

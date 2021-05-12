@@ -75,4 +75,13 @@ public class UserService implements UserDetailsService {
 
         return userDetails;
     }
+
+    public boolean deleteUserDetailsById(Long id) {
+
+        User user = userRepository.findById(id).get();
+
+        this.userRepository.delete(user);
+
+        return true;
+    }
 }

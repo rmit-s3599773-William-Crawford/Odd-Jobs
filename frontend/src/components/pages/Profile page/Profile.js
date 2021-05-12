@@ -38,6 +38,15 @@ import axios from "axios";
                     this.setState(this.state)
             })
     }
+
+    deleteUser() {
+        return function () {
+            axios.delete("api/user/current/delete")
+                .then(
+                    window.location.replace("http://localhost:8080/login")
+                )
+        }
+    }
   
     render () {
         return (      
@@ -77,6 +86,7 @@ import axios from "axios";
                     
                     <Button
                         className='btnDel'
+                        onClick={this.deleteUser()}
                         href='/login'>
                         Delete
                     </Button>
