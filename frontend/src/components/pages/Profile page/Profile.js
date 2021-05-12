@@ -42,9 +42,14 @@ import axios from "axios";
     deleteUser() {
         return function () {
             axios.delete("api/user/current/delete")
+            window.alert("Are you sure about deleting the Account! this action cannot be undone ")
+            window.alert("Account Successfully deleted")
                 .then(
+
                     window.location.replace("http://localhost:8080/login")
+
                 )
+
         }
     }
   
