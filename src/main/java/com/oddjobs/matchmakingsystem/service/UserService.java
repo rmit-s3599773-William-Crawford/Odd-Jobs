@@ -1,5 +1,6 @@
 package com.oddjobs.matchmakingsystem.service;
 
+import com.google.gson.Gson;
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
 import com.oddjobs.matchmakingsystem.model.UserToken;
@@ -66,33 +67,12 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public String getUserDetailByIdAndField(Long id, String value) {
+    public String getUserDetailsById(Long id) {
+        String userDetails = "";
+        User user = userRepository.findById(id).get();
 
-        switch (value) {
-            case "all":
-                return userRepository.findById(id).get().toString();
-            case "username":
-            case "email":
-                return userRepository.findById(id).get().getUsername();
-            case "firstname":
-                return userRepository.findById(id).get().getFirstName();
-            case "lastname":
-                return userRepository.findById(id).get().getLastName();
-            case "name":
-                String name;
-                name = userRepository.findById(id).get().getFirstName()
-                        + " "
-                        + userRepository.findById(id).get().getLastName();
-                return name;
-            case "expertise":
-                return userRepository.findById(id).get().getExpertise();
-            case "address":
-                return userRepository.findById(id).get().getAddress();
-            case "phone":
-                return userRepository.findById(id).get().getPhone();
-        }
-        return "Value " + value + " is undefined";
+        userDetails = new Gson().toJson(user);
+
+        return userDetails;
     }
-
-
 }

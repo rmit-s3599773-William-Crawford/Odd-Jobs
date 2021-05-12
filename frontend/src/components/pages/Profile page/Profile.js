@@ -19,8 +19,25 @@ import axios from "axios";
             phone:''
 
         }
+        this.setUserDetails()
     }
-  
+
+    //TODO Setting entire state not implemented, currently only sets username.
+    setUserDetails() {
+        var response
+        var data
+
+        response = axios.get("api/user/current")
+            .then((response) => {
+                console.log(response)
+                    data = response.data.email;
+                console.log(data)
+                    this.state.username = data;
+
+                //refresh state for display
+                    this.setState(this.state)
+            })
+    }
   
     render () {
         return (      

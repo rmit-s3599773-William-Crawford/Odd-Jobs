@@ -110,16 +110,16 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/current/{value}")
-    public ResponseEntity<String> getCurrentUserDetail(@PathVariable(value = "value") String value) {
-        String userDetail;
+    @GetMapping("/current")
+    public ResponseEntity<String> getCurrentUserDetails() {
+        String userDetails;
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long currentUserId;
         currentUserId = ((User)principal).getId();
 
-        userDetail = userService.getUserDetailByIdAndField(currentUserId, value);
+        userDetails = userService.getUserDetailsById(currentUserId);
 
-        return ResponseEntity.ok(userDetail);
+        return ResponseEntity.ok(userDetails);
     }
 }
