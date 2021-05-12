@@ -38,14 +38,11 @@ public class UserController {
 //    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
 
     @PostMapping("/register")
-    public User saveUser(@RequestBody User user) {
+    public User registerUser(@RequestBody User user) {
         System.out.println("Register User");
 
         userService.registerUser(user);
-
-
         return user;
-
 
 //        String kind = "User";
 //        String name = user.getEmail();
@@ -62,22 +59,19 @@ public class UserController {
 //        datastore.put(newUser);
     }
 
+    @PostMapping("/update")
+    public User updateUser(@RequestBody User user) {
+        System.out.println("Update User");
+
+        userService.registerUser(user);
+        return user;
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(
                 this.userRepository.findAll()
         );
-    }
-
-    @GetMapping("/current/username")
-    public ResponseEntity<String> getCurrentUserUsername() {
-
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        String username;
-        username = ((UserDetails)principal).getUsername();
-
-        return ResponseEntity.ok(username);
     }
 
     @GetMapping("/{id}")
@@ -114,5 +108,18 @@ public class UserController {
 
         this.userRepository.delete(user);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/current")
+    public ResponseEntity<String> getCurrentUserDetails() {
+        String userDetails;
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long currentUserId;
+        currentUserId = ((User)principal).getId();
+
+        userDetails = userService.getUserDetailsById(currentUserId);
+
+        return ResponseEntity.ok(userDetails);
     }
 }

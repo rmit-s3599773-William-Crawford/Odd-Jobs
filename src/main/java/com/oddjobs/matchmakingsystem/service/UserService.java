@@ -1,5 +1,6 @@
 package com.oddjobs.matchmakingsystem.service;
 
+import com.google.gson.Gson;
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
 import com.oddjobs.matchmakingsystem.model.UserToken;
@@ -64,5 +65,14 @@ public class UserService implements UserDetailsService {
         else {
             throw new UsernameNotFoundException(MessageFormat.format("User {0} cannot be found.", email));
         }
+    }
+
+    public String getUserDetailsById(Long id) {
+        String userDetails = "";
+        User user = userRepository.findById(id).get();
+
+        userDetails = new Gson().toJson(user);
+
+        return userDetails;
     }
 }

@@ -3,6 +3,7 @@ import {Container, Button} from "react-bootstrap";
 import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Profile.css';
+import axios from "axios";
 
 
      class Profile extends Component{
@@ -18,8 +19,25 @@ import './Profile.css';
             phone:''
 
         }
+        this.setUserDetails()
     }
-  
+
+    //TODO Setting entire state not implemented, currently only sets username.
+    setUserDetails() {
+        var response
+        var data
+
+        response = axios.get("api/user/current")
+            .then((response) => {
+                console.log(response)
+                    data = response.data.email;
+                console.log(data)
+                    this.state.username = data;
+
+                //refresh state for display
+                    this.setState(this.state)
+            })
+    }
   
     render () {
         return (      
@@ -33,8 +51,8 @@ import './Profile.css';
                     <table style={{ width: '700px' }} >
                         <thead>
                             <tr>
-                                <td> Email</td>
-                                <td> Full name</td>
+                                <td>Email</td>
+                                <td>Full name</td>
                                 <td>Personal address</td>
                                 <td>Phone</td>
                                 <td>Expertise/Field</td>
