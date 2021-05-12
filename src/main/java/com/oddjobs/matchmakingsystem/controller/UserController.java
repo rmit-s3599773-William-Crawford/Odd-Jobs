@@ -59,14 +59,20 @@ public class UserController {
 //        datastore.put(newUser);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public User updateUser(@RequestBody User user) {
-        System.out.println("Update User");
+        System.out.println("Update User " + user.getId()
+                + " with email: " + user.getEmail()
+                + " with firstname: " + user.getFirstName()
+                + " with lastname: " + user.getLastName()
+                + " with address: " + user.getAddress()
+                + " with phone: " + user.getPhone());
 
-        userService.registerUser(user);
+        userService.updateUser(user);
         return user;
     }
 
+    //TODO Remove for production
     @GetMapping("/all")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(
@@ -74,6 +80,7 @@ public class UserController {
         );
     }
 
+    //TODO redo
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long id) {
         User user = this.userRepository.findById(id).orElseThrow(
@@ -83,6 +90,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
+    //TODO redo
     @PutMapping("/{id}")
     public User updateUser(@RequestBody User newUser, @PathVariable(value = "id") Long id) {
         return this.userRepository.findById(id)
@@ -100,6 +108,7 @@ public class UserController {
                 });
     }
 
+    //TODO Redo
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeUser(@PathVariable(value = "id") Long id) {
         User user = this.userRepository.findById(id).orElseThrow(

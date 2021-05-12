@@ -6,6 +6,7 @@ import { GiSave } from 'react-icons/gi';
 import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Edit_Profile.css';
+import axios from "axios";
 
 
      class Edit_Profile extends Component{
@@ -13,13 +14,20 @@ import './Edit_Profile.css';
         super()
         this.state = {
             id:'',
-            userID:'',
+            firstName:'',
+            lastName:'',
             email:'',
-            fullname:'',
+            password:'',
             address:'',
             phone:''
-
         };
+        //Get ID of current User to send with form submission
+        var response = axios.get("api/user/current")
+                .then((response) => {
+                    var data = response.data.id;
+                    this.state.id = data;
+                    this.setState(this.state)
+                })
           this.onChange = this.onChange.bind(this);
           this.onSubmit = this.onSubmit.bind(this);
     }
@@ -30,7 +38,8 @@ import './Edit_Profile.css';
 
     onSubmit(e) {
       e.preventDefault();
-      
+      console.log(this.state)
+      axios.put("api/user/update", this.state)
     }
   
   
@@ -44,7 +53,7 @@ import './Edit_Profile.css';
                 <h1>Edit</h1>
                 <Form.Group  className="txtbEdit">
                   <Form.Control controlId="formBasicEmail"
-                      type="text"
+                      type = "email"
                       name = "email"
                       placeholder="Enter email"
                       value={this.state.email}
@@ -52,7 +61,6 @@ import './Edit_Profile.css';
                   />
                   <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
-
                 <Form.Group controlId="formBasicPassword" className="txtbEdit">
                   <Form.Control
                       type="password"
@@ -62,13 +70,22 @@ import './Edit_Profile.css';
                       onChange={this.onChange}
                   />
                 </Form.Group>
+                <Form.Group controlId="formBasicFirstName" className="txtbEdit">
+                    <Form.Control
+                        type="name"
+                        name = "firstname"
+                        placeholder="First name"
+                        value={this.state.firstName}
+                        onChange={this.onChange}
+                    />
+                </Form.Group>
 
-                <Form.Group controlId="formBasicFullNmae" className="txtbEdit">
+                <Form.Group controlId="formBasicFullName" className="txtbEdit">
                   <Form.Control
                       type="name"
-                      name = "fullname"
-                      placeholder="Full name"
-                      value={this.state.fullname}
+                      name = "lastname"
+                      placeholder="Last name"
+                      value={this.state.lastName}
                       onChange={this.onChange}
                   />
                 </Form.Group>
@@ -83,11 +100,11 @@ import './Edit_Profile.css';
                   />
                 </Form.Group>
                 
-                <Form.Group controlId="formBasicAdress" className="txtbEdit">
+                <Form.Group controlId="formBasicAddress" className="txtbEdit">
                   <Form.Control
-                      type ="adress"
-                      name = "adress"
-                      placeholder="Full adress"
+                      type ="address"
+                      name = "address"
+                      placeholder="Full address"
                       value={this.state.address}
                       onChange={this.onChange}
                   />
@@ -99,7 +116,7 @@ import './Edit_Profile.css';
                     variant="primary"
                     // onClick={(event) => this.handleClick(event)}
                     className="Editbtn"
-                    href="/profile"
+                    // href="/profile"
                    >
                     <GiSave/>
                   </Button>

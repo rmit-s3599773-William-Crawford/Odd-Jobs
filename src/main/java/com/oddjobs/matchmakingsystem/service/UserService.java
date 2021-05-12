@@ -67,9 +67,38 @@ public class UserService implements UserDetailsService {
         }
     }
 
+    public boolean updateUser(User user) {
+        Long id = user.getId();
+        User savedUser = new User();
+        if(userRepository.findById(id).isPresent())
+            savedUser = userRepository.findById(id).get();
+
+        //If an attribute of the new User is empty, do not replace it.
+        if(!user.getEmail().equals(""))
+            savedUser.setEmail(user.getEmail());
+        if(!user.getPassword().equals("")) {
+            String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+            user.setPassword(encryptedPassword);
+        }
+        if(!user.getFirstName().equals(""))
+            savedUser.setFirstName(user.getFirstName());
+        if(!user.getLastName().equals(""))
+            savedUser.setLastName(user.getLastName());
+        if(!user.getAddress().equals(""))
+            savedUser.setAddress(user.getAddress());
+        if(!user.getPhone().equals(""))
+            savedUser.setPhone(user.getPhone());
+
+        userRepository.save(savedUser);
+
+        return true;
+    }
+
     public String getUserDetailsById(Long id) {
         String userDetails = "";
-        User user = userRepository.findById(id).get();
+        User user = new User();
+        if(userRepository.findById(id).isPresent())
+            user = userRepository.findById(id).get();
 
         userDetails = new Gson().toJson(user);
 
@@ -77,8 +106,9 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean deleteUserDetailsById(Long id) {
-
-        User user = userRepository.findById(id).get();
+        User user = new User();
+        if(userRepository.findById(id).isPresent())
+            user = userRepository.findById(id).get();
 
         this.userRepository.delete(user);
 
