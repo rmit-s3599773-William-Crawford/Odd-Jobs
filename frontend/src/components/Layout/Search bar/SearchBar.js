@@ -31,7 +31,7 @@ class SearchBar extends Component{
                         <select className="form-control" name="categories" id="categories">
                             <option value="catg">All categories</option>
                             <option value="car">Fixing Car</option>
-                            <option value="babyS">Babysitting</option>
+                            <option value="babyS">babysitter</option>
                             <option value="DogW">Dog walker</option>
                         </select>
                       

@@ -40,8 +40,8 @@ class Register extends Component{
   render() {
       return (
         <Container>
-        <HomeNaveBar/>
-        <SearchBar/>
+        {/* <HomeNaveBar/>
+        <SearchBar/> */}
 
           <div>
             <Form className="register-form" onSubmit={this.onSubmit}>

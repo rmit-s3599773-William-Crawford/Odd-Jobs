@@ -39,7 +39,7 @@ class Login extends Component{
       }
     }).finally(()=> {
       alert("Successfully Loggedin");
-      window.location.replace("http://localhost:8080/about");
+      window.location.replace("http://localhost:8080/job");
     })
   }
 
@@ -48,8 +48,8 @@ class Login extends Component{
   render() {
       return (
         <Container>
-        <HomeNaveBar/>
-        <SearchBar/>
+        {/* <HomeNaveBar/> */}
+        {/* <SearchBar/> */}
           <div>
             <Form className="login-form"  onSubmit={this.onSubmit} >
               <h1>Login</h1>
@@ -97,6 +97,13 @@ class Login extends Component{
                   </a>
                 </div>
               </Row>
+              <div className="bottom-text">
+                Learn more about OddJobs
+                  <a href="/about" style={{ textDecoration: "none" }}>
+                    {" "}
+                    About us{" "}
+                  </a>
+                </div>
             </Form>
           </div>
         </Container>

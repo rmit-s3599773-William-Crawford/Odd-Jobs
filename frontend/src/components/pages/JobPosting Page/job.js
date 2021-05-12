@@ -34,32 +34,68 @@ class Job extends Component{
         <SearchBar/>
  
           <div>
-            <Form className="job-form">
+            <Form  className="job-form">
               <h1>Job Post</h1>
  
               <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
                   type="text"
-                  placeholder="Post a Job"
+                  placeholder="Job title"
                 
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
- 
-              <Form.Group controlId="formBasicText" className="description input">
+
+                <input
+                  type="checkbox"
+                  id="babysitter"
+                  name="babysitter"
+                   value="babysitter"
+                
+                />
+                <label for="babysitter"> Babysitter</label><br/>
+                
+                <input
+                  type="checkbox"
+                  id="dogwalker"
+                  name="dogwalker"
+               
+                
+                />
+                <label for="dog walker"> Dog walker</label><br/>
+
+                <input
+                  type="checkbox"
+                  id="carpenter"
+                  name="carpenter"
+                
+                />
+                <label for="dog walker"> Carpenter</label><br/>
+
+                <input
+                  type="checkbox"
+                  id="maintenanceworker"
+                  name="maintenanceworker"
+                
+                />
+                <label for="maintenance worker"> Maintenance worker</label><br/>
+
+                <input
+                  type="checkbox"
+                  id="other"
+                  name="other"
+                
+                />
+                <label for="other"> Other(includ in Job Description box)</label><br/>
+                <Form.Group controlId="formBasicText" className="description input">
                 <Form.Control
-                  type="text"
-                  placeholder="Job Description"
+                   typ="textarea" id="myTextarea" rows="10" cols="30"
+                   placeholder="Job Description"
+
                 
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicText" className="txtbr">
-                <Form.Control
-                  type="text"
-                  placeholder="Job Classification"
-                
-                />
-              </Form.Group>
+
               <Form.Group controlId="Location" className="txtbr">
                 <Form.Control
                   type="text"
