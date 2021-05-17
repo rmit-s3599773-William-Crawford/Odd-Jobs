@@ -1,0 +1,20 @@
+.body{
+    margin-left: 30%;
+        padding: 80px 30px;
+}
+
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.td {
+  border: 1px solid #afcfdf;
+  text-align: left;
+  padding: 8px;
+}
+
+.tr:nth-child(even) {
+  background-color: #afcfdf;
+}

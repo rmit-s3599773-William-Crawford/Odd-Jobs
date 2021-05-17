@@ -13,9 +13,10 @@ class Job extends Component{
     super(props);
     this.state = {
       id:"",
-      username: "",
-      password: "",
-      account: ""
+      title: "",
+      description: "",
+      classification: "",
+      location: "",
     };
  
     this.onChange = this.onChange.bind(this);
@@ -33,32 +34,68 @@ class Job extends Component{
         <SearchBar/>
  
           <div>
-            <Form className="job-form">
+            <Form  className="job-form">
               <h1>Job Post</h1>
  
               <Form.Group controlId="formBasicText" className="txtbr">
                 <Form.Control
                   type="text"
-                  placeholder="Job Title"
+                  placeholder="Job title"
                 
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
- 
-              <Form.Group controlId="formBasicText" className="description input">
-                <Form.Control
-                  type="text"
+
+                <input
+                  type="checkbox"
+                  id="babysitter"
+                  name="babysitter"
+                   value="babysitter"
+                
+                />
+                <label for="babysitter"> Babysitter</label><br/>
+                
+                <input
+                  type="checkbox"
+                  id="dogwalker"
+                  name="dogwalker"
+               
+                
+                />
+                <label for="dog walker"> Dog walker</label><br/>
+
+                <input
+                  type="checkbox"
+                  id="carpenter"
+                  name="carpenter"
+                
+                />
+                <label for="dog walker"> Carpenter</label><br/>
+
+                <input
+                  type="checkbox"
+                  id="maintenanceworker"
+                  name="maintenanceworker"
+                
+                />
+                <label for="maintenance worker"> Maintenance worker</label><br/>
+
+                <input
+                  type="checkbox"
+                  id="other"
+                  name="other"
+                
+                />
+                <label for="other"> Other(includ in Job Description box)</label><br/>
+                <textarea
+                  rows="3"
+                  cols="50"
                   placeholder="Job Description"
-                
+                  id="myTextarea"
+                  type="textarea"
+
                 />
-              </Form.Group>
-              <Form.Group controlId="formBasicText" className="txtbr">
-                <Form.Control
-                  type="text"
-                  placeholder="Job Category (eg. trades, construction, design, gardening, business/admin)"
-                
-                />
-              </Form.Group>
+
               <Form.Group controlId="Location" className="txtbr">
                 <Form.Control
                   type="text"

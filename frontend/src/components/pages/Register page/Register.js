@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
-import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Register.css';
 import axios from "axios";
 
@@ -16,7 +13,6 @@ class Register extends Component{
       firstName:"",
       lastName: "",
       email: "",
-      username: "",
       password: ""
     };
 
@@ -30,17 +26,17 @@ class Register extends Component{
 
   //Adds a user to the backend repository using data grabbed the component state
   onSubmit(e) {
-    e.preventDefault();
-    let newUser = this.state;
-    axios.post("/api/user/save", newUser)
+      e.preventDefault();
+      let newUser = this.state;
+      console.log(newUser);
+      axios.post("/api/user/register", newUser)
+      alert("Account successfully created")
+      window.history.back()
   }
-  
+
   render() {
       return (
         <Container>
-        <HomeNaveBar/>
-        <SearchBar/>
-
           <div>
             <Form className="register-form" onSubmit={this.onSubmit}>
               <h1>Register</h1>
@@ -52,6 +48,7 @@ class Register extends Component{
                   placeholder="Enter email"
                   value={this.state.email}
                   onChange={this.onChange}
+                  required
                 />
                 <Form.Text className="text-muted"></Form.Text>
               </Form.Group>
@@ -63,6 +60,7 @@ class Register extends Component{
                   placeholder="Password"
                   value={this.state.password}
                   onChange={this.onChange}
+                  required
                 />
               </Form.Group>
               <Form.Group controlId="formBasicFirstName" className="txtbr">
@@ -72,8 +70,10 @@ class Register extends Component{
                   placeholder="First Name"
                   value={this.state.firstName}
                   onChange={this.onChange}
+                  required
                 />
               </Form.Group>
+
               <Form.Group controlId="formBasicLastName" className="txtbr">
                 <Form.Control
                   type="text"
@@ -81,16 +81,37 @@ class Register extends Component{
                   placeholder="Last Name"
                   value={this.state.lastName}
                   onChange={this.onChange}
+                  required
                 />
               </Form.Group>
 
+                
+              <Form.Group controlId="formBasicPhone" className="txtbr">
+                  <Form.Control
+                      type="phone"
+                      name = "phone"
+                      placeholder="Phone ##-###-#####"
+                      value={this.state.phone}
+                      onChange={this.onChange}        
+                  />
+                </Form.Group>
+                
+                <Form.Group controlId="formBasicAddress" className="txtbr">
+                  <Form.Control
+                      type ="address"
+                      name = "address"
+                      placeholder="Full address"
+                      value={this.state.address}
+                      onChange={this.onChange}
+                  />
+                </Form.Group>
+
               <Row>
                 <Button
-                    type="submit"
-                    value="Register"
-                  variant="primary"
-                  // onClick={(event) => this.handleClick(event)}
                   className="registerbtn"
+                  type="submit"
+                  value="Register"
+                  variant="primary"
                 >
                   Register
                 </Button>

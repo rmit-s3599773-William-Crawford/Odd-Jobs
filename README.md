@@ -2,7 +2,7 @@
 
 This project uses Webpack alongside Maven to build and run.
 
-## Install JDK and Maven
+## Install JDK, Maven, and Google Cloud SDK
 
 ### JDK
 
@@ -26,6 +26,12 @@ Another menu will pop up with a list of directories. Click "New" to add a new va
 For example: C:\Users\\{user}\Documents\Maven\apache-maven-3.8.1\bin
 
 You can now run Maven goals through powershell and inside Visual Studio Code terminals, use "mvn -v" to confirm
+
+### Google Cloud SDK
+
+Follow the installation instructions for [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+
+Make sure to run `gcloud init` and set your project to Odd-Jobs.
 
 ## Available Scripts
 

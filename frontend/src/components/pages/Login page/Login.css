@@ -45,6 +45,9 @@
     outline: none;
     cursor: pointer;
     transition: .5s;
+    font-size: 20px;
+    text-align: center;
+
   }
   .logbtn:hover{
     background-position: right;

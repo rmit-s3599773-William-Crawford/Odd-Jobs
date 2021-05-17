@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
-import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Login.css';
 import axios from "axios";
 
@@ -28,25 +25,28 @@ class Login extends Component{
 
   //Attempts to log in the user
   onSubmit(e) {
+    console.log(this.state);
     e.preventDefault();
-    let userToLogIn = this.state;
-    axios.post("/login", {}, {
-      auth: {
-        username: userToLogIn.username,
-        password: userToLogIn.password,
-        roles: userToLogIn.roles
+    axios({
+      method: "post",
+      url:'/login',
+      params:{
+        username: this.state.username,
+        password: this.state.password
       }
+    }).finally(()=> {
+      alert("Successfully Loggedin");
+      window.location.replace("http://localhost:8080/job");
     })
   }
+
  
   
   render() {
       return (
         <Container>
-        <HomeNaveBar/>
-        <SearchBar/>
           <div>
-            <Form className="login-form" onSubmit={this.onSubmit}>
+            <Form className="login-form"  onSubmit={this.onSubmit} >
               <h1>Login</h1>
 
               <Form.Group controlId="formBasicEmail" className="txtb">
@@ -56,6 +56,7 @@ class Login extends Component{
                     placeholder="Enter email"
                     value={this.state.username}
                     onChange={this.onChange}
+                    required
                  
                 />
                 <Form.Text className="text-muted"></Form.Text>
@@ -68,39 +69,18 @@ class Login extends Component{
                     placeholder="Password"
                     value={this.state.password}
                     onChange={this.onChange}
+                    required
                  
                 />
               </Form.Group>
 
-              <Form.Group>
-                <Row className="acc-type">
-                  <Form.Label>Account:</Form.Label>
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Householder"
-                    name="accountType"
-                    value="Householder"
-                  
-                  />
-                  <Form.Check
-                    className="acc-type"
-                    type="radio"
-                    label="Work trader"
-                    name="accountType"
-                    value="WorkTrader"
-                    
-                  />
-                </Row>
-              </Form.Group>
-
               <Row>
                 <Button
-                    type="submit"
-                    value="Sign in"
-                  variant="primary"
-                  // onClick={(event) => this.handleClick(event)}
                   className="logbtn"
+                  type="submit"
+                  value="Sign in"
+                  variant="primary"
+
                 >
                   Login
                 </Button>
@@ -112,6 +92,13 @@ class Login extends Component{
                   </a>
                 </div>
               </Row>
+              <div className="bottom-text">
+                Learn more about OddJobs
+                  <a href="/about" style={{ textDecoration: "none" }}>
+                    {" "}
+                    About us{" "}
+                  </a>
+                </div>
             </Form>
           </div>
         </Container>

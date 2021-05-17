@@ -2,35 +2,50 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
+import com.oddjobs.matchmakingsystem.model.UserToken;
 import com.oddjobs.matchmakingsystem.repository.UserRepository;
 
+import com.oddjobs.matchmakingsystem.service.UserService;
+import com.oddjobs.matchmakingsystem.service.UserTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import com.google.cloud.datastore.Datastore;
-import com.google.cloud.datastore.DatastoreOptions;
-import com.google.cloud.datastore.Entity;
-import com.google.cloud.datastore.Key;
+//import com.google.cloud.datastore.Datastore;
+//import com.google.cloud.datastore.DatastoreOptions;
+//import com.google.cloud.datastore.Entity;
+//import com.google.cloud.datastore.Key;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin
 public class UserController {
-    private UserRepository userRepository;
-    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
 
     @Autowired
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository; //Deprecated
 
-    @PostMapping("/save")
-    public User saveUser(@RequestBody User user) {
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserTokenService userTokenService;
+
+//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+
+    @PostMapping("/register")
+    public User registerUser(@RequestBody User user) {
+        System.out.println("Register User");
+
+        userService.registerUser(user);
+        return user;
+
 //        String kind = "User";
-//        String name = "firstuser1";
+//        String name = user.getEmail();
 //        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
 //
 //        Entity newUser = Entity.newBuilder(userKey)
@@ -42,10 +57,22 @@ public class UserController {
 //                .build();
 //
 //        datastore.put(newUser);
-
-        return this.userRepository.save(user);
     }
 
+    @PutMapping("/update")
+    public User updateUser(@RequestBody User user) {
+        System.out.println("Update User " + user.getId()
+                + " with email: " + user.getEmail()
+                + " with firstname: " + user.getFirstName()
+                + " with lastname: " + user.getLastName()
+                + " with address: " + user.getAddress()
+                + " with phone: " + user.getPhone());
+
+        userService.updateUser(user);
+        return user;
+    }
+
+    //TODO Remove for production
     @GetMapping("/all")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(
@@ -53,6 +80,7 @@ public class UserController {
         );
     }
 
+    //TODO redo
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long id) {
         User user = this.userRepository.findById(id).orElseThrow(
@@ -62,6 +90,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
+    //TODO redo
     @PutMapping("/{id}")
     public User updateUser(@RequestBody User newUser, @PathVariable(value = "id") Long id) {
         return this.userRepository.findById(id)
@@ -79,6 +108,7 @@ public class UserController {
                 });
     }
 
+    //TODO Redo
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeUser(@PathVariable(value = "id") Long id) {
         User user = this.userRepository.findById(id).orElseThrow(
@@ -89,4 +119,30 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/current/delete")
+    public ResponseEntity<Void> deleteCurrentUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long currentUserId;
+        currentUserId = ((User)principal).getId();
+
+        userService.deleteUserDetailsById(currentUserId);
+
+        //Force log out after deleting the user.
+        SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/current")
+    public ResponseEntity<String> getCurrentUserDetails() {
+        String userDetails;
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long currentUserId;
+        currentUserId = ((User)principal).getId();
+
+        userDetails = userService.getUserDetailsById(currentUserId);
+
+        return ResponseEntity.ok(userDetails);
+    }
 }

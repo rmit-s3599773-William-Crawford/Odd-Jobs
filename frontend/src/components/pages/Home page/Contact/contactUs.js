@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FaLocationArrow, FaPhoneVolume, FaCalendarAlt  } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { BiArrowBack } from 'react-icons/bi';
 import './contactUs.css'
 
 class contactUs extends Component {
@@ -52,7 +53,8 @@ class contactUs extends Component {
                 <div class="bottom-text-return">
                     <a href="/about" style={{ textDecoration: "none" }}>
                     {" "}
-                    Return to MatchMe{" "}
+                    <BiArrowBack/>
+                    Return to OddJobs {" "}
                     </a>
                 </div>
           </>

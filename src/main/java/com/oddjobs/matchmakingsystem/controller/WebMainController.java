@@ -35,7 +35,6 @@ public class WebMainController {
         return "profile";
     }
 
-    
     @RequestMapping(value = "/job")
     public String job() {
         return "job";
@@ -44,5 +43,10 @@ public class WebMainController {
     @RequestMapping(value = "/inbox")
     public String inbox() {
         return "inbox";
+    }
+
+    @RequestMapping(value = "/editprofile")
+    public String editProfile() {
+        return "edit_profile";
     }
 }

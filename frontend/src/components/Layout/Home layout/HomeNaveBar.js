@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './HomeNaveBar.css'
 import * as Icons from 'react-icons/bs';
-import Logo from './icon1.png'
+import Logo from './OddJobLogo.png'
 
 class HomeNaveBar extends Component {
     constructor(props) {
@@ -56,7 +56,7 @@ class HomeNaveBar extends Component {
                 {
                    
                     title: 'Logout',
-                    url: '/LogOut',
+                    url: '/logout',
                     icon: <Icons.BsBoxArrowRight />,
                     cName: 'nav-links-logout',
                 }
@@ -96,7 +96,7 @@ class HomeNaveBar extends Component {
                 },
 
                 {
-                    title: 'Login',
+                    title: 'Log In',
                     url: '/login',
                     icon: <Icons.BsPeopleCircle />,
                     cName: 'nav-links-login',
@@ -111,7 +111,7 @@ class HomeNaveBar extends Component {
                 
                     <h1 className="navbar-logo">
                         <img className="logo" src={Logo} alt="description of " />
-                        MatchMe
+                        
                     </h1>
                 </a>
             
