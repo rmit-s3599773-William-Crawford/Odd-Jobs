@@ -9,19 +9,21 @@ class Inbox extends Component {
         <>
         <HomeNaveBar/>
         <SearchBar/>
-            <div id="wrapper">
-                <div id="menu">
-                    <button type="button" id="exit" class="btn cancel" onclick="closeForm()">Exit Chat</button>
+            <div id="inboxwrapper">
+                <div id="inboxmenu">
+                    <button type="button" id="inboxexit" class="btn cancel" onclick="closeForm()">Exit Chat</button>
                 </div>
     
                 <div id="chatbox"></div>
     
-                <form name="message" action="">
-                    <input name="usermsg" type="text" id="usermsg" />
-                    <input name="submitmsg" type="submit" id="submitmsg" value="Send" />
+                <form name="inboxform" action="">
+                    <input name="usermsg" type="text" id="inboxusermsg" />
+                    <input name="submitmsg" type="submit" id="inboxsubmitmsg" value="Send" />
                 </form>
             </div>
             </>
     
     );
     } }
+    export default Inbox;
+
