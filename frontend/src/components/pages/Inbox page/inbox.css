@@ -75,7 +75,7 @@
   .error {
     color: #ff0000;
   }
-  a#exit {
+  #exit {
     color: rgb(0, 0, 0);
     background: #ff0000;
     padding: 2px;
