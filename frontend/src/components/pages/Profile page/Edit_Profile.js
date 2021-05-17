@@ -37,9 +37,16 @@ import axios from "axios";
     }
 
     onSubmit(e) {
-      e.preventDefault();
-      console.log(this.state)
-      axios.put("api/user/update", this.state)
+      var msg = window.confirm("Are you sure about changing details?")
+      if (msg) {
+          e.preventDefault()
+          window.alert("Changes Successfully Saved")
+          axios.put("api/user/update", this.state)
+          window.location.replace("http://localhost:8080/profile")
+          console.log(this.state)
+      }else if(msg == false) {}
+     
+      
     }
   
   
@@ -80,7 +87,7 @@ import axios from "axios";
                     />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicFullName" className="txtbEdit">
+                <Form.Group controlId="formBasiclName" className="txtbEdit">
                   <Form.Control
                       type="name"
                       name = "lastname"
@@ -116,7 +123,6 @@ import axios from "axios";
                     variant="primary"
                     // onClick={(event) => this.handleClick(event)}
                     className="Editbtn"
-                    // href="/profile"
                    >
                     <GiSave/>
                   </Button>

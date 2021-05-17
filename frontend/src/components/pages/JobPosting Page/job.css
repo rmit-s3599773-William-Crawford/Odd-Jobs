@@ -1,7 +1,7 @@
 .job-form{
 	width: 500px;
     background: #cde0e2;
-    height: 645px;
+    height: 630px;
     padding: 60px 70px;
     border-radius: 10px;
     position: absolute;
@@ -38,6 +38,7 @@
 	    height: 40px;
 	  }
 	  .jobbtn{
+		font-size: 20px;
 	    display: block;
 	    width: 100%;
 	    height: 50px;
@@ -48,6 +49,7 @@
 	    outline: none;
 	    cursor: pointer;
 	    transition: .5s;
+
 	  }
 	  .jobbtn:hover{
 	    background-position: right;

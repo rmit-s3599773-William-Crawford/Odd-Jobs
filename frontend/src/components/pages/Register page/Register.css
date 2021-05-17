@@ -1,12 +1,12 @@
 .register-form{
     width: 380px;
     background: #cde0e2;
-    height: 460px;
-    padding: 50px 70px;
+    height: 590px;
+    padding: 50px 90px;
     border-radius: 10px;
     position: absolute;
     left: 50%;
-    top: 58%;
+    top: 50%;
     transform: translate(-50%,-50%);
   }
   .register-form h1{

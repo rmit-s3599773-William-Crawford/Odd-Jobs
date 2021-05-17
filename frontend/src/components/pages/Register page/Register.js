@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
-import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Register.css';
 import axios from "axios";
 
@@ -40,9 +37,6 @@ class Register extends Component{
   render() {
       return (
         <Container>
-        {/* <HomeNaveBar/>
-        <SearchBar/> */}
-
           <div>
             <Form className="register-form" onSubmit={this.onSubmit}>
               <h1>Register</h1>
@@ -79,6 +73,7 @@ class Register extends Component{
                   required
                 />
               </Form.Group>
+
               <Form.Group controlId="formBasicLastName" className="txtbr">
                 <Form.Control
                   type="text"
@@ -89,6 +84,27 @@ class Register extends Component{
                   required
                 />
               </Form.Group>
+
+                
+              <Form.Group controlId="formBasicPhone" className="txtbEdit">
+                  <Form.Control
+                      type="phone"
+                      name = "phone"
+                      placeholder="Phone ##-###-#####"
+                      value={this.state.phone}
+                      onChange={this.onChange}        
+                  />
+                </Form.Group>
+                
+                <Form.Group controlId="formBasicAddress" className="txtbEdit">
+                  <Form.Control
+                      type ="address"
+                      name = "address"
+                      placeholder="Full address"
+                      value={this.state.address}
+                      onChange={this.onChange}
+                  />
+                </Form.Group>
 
               <Row>
                 <Button

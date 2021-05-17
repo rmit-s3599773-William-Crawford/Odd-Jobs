@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
-import SearchBar from './../../Layout/Search bar/SearchBar';
 import './Login.css';
 import axios from "axios";
 
@@ -48,8 +45,6 @@ class Login extends Component{
   render() {
       return (
         <Container>
-        {/* <HomeNaveBar/> */}
-        {/* <SearchBar/> */}
           <div>
             <Form className="login-form"  onSubmit={this.onSubmit} >
               <h1>Login</h1>

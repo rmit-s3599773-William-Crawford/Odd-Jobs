@@ -41,17 +41,18 @@ import axios from "axios";
 
     deleteUser() {
         return function () {
-            axios.delete("api/user/current/delete")
-            window.alert("Are you sure about deleting the Account! this action cannot be undone ")
-            window.alert("Account Successfully deleted")
-                .then(
-
-                    window.location.replace("http://localhost:8080/login")
-
-                )
-
+            var msg = window.confirm("Are you sure about deleting the Account! this action cannot be undone?")
+            if (msg) {
+                window.alert("Account Successfully deleted")
+                axios.delete("api/user/current/delete")
+                window.location.replace("http://localhost:8080/login")
+            }else if(msg == false) {
+                
+            }
+           
         }
     }
+    
   
     render () {
         return (      
@@ -85,14 +86,15 @@ import axios from "axios";
                     <Button
                         className='btnEdt'
                         href={'/editprofile'}
-                        style={{ marginRight: '10px' }}>
+                        style={{ marginRight: '10px' }}
+                        >
                         Edit
                     </Button>
                     
                     <Button
                         className='btnDel'
                         onClick={this.deleteUser()}
-                        href='/login'>
+                       >
                         Delete
                     </Button>
              </div> 

@@ -87,14 +87,14 @@ class Job extends Component{
                 
                 />
                 <label for="other"> Other(includ in Job Description box)</label><br/>
-                <Form.Group controlId="formBasicText" className="description input">
-                <Form.Control
-                   typ="textarea" id="myTextarea" rows="10" cols="30"
-                   placeholder="Job Description"
+                <textarea
+                  rows="3"
+                  cols="50"
+                  placeholder="Job Description"
+                  id="myTextarea"
+                  type="textarea"
 
-                
                 />
-              </Form.Group>
 
               <Form.Group controlId="Location" className="txtbr">
                 <Form.Control
