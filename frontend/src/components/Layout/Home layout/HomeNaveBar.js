@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './HomeNaveBar.css'
 import * as Icons from 'react-icons/bs';
-import Logo from './icon1.png'
+import Logo from './OddJobLogo.png'
 
 class HomeNaveBar extends Component {
     constructor(props) {
@@ -111,7 +111,7 @@ class HomeNaveBar extends Component {
                 
                     <h1 className="navbar-logo">
                         <img className="logo" src={Logo} alt="description of " />
-                        OddJobs
+                        
                     </h1>
                 </a>
             

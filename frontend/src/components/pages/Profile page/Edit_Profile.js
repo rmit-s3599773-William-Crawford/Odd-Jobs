@@ -68,6 +68,7 @@ import axios from "axios";
                   />
                   <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
+
                 <Form.Group controlId="formBasicPassword" className="txtbEdit">
                   <Form.Control
                       type="password"
@@ -77,6 +78,7 @@ import axios from "axios";
                       onChange={this.onChange}
                   />
                 </Form.Group>
+                
                 <Form.Group controlId="formBasicFirstName" className="txtbEdit">
                     <Form.Control
                         type="name"

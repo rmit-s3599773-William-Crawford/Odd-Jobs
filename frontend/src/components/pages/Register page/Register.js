@@ -86,7 +86,7 @@ class Register extends Component{
               </Form.Group>
 
                 
-              <Form.Group controlId="formBasicPhone" className="txtbEdit">
+              <Form.Group controlId="formBasicPhone" className="txtbr">
                   <Form.Control
                       type="phone"
                       name = "phone"
@@ -96,7 +96,7 @@ class Register extends Component{
                   />
                 </Form.Group>
                 
-                <Form.Group controlId="formBasicAddress" className="txtbEdit">
+                <Form.Group controlId="formBasicAddress" className="txtbr">
                   <Form.Control
                       type ="address"
                       name = "address"
