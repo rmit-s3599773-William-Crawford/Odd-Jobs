@@ -13,7 +13,9 @@ class Register extends Component{
       firstName:"",
       lastName: "",
       email: "",
-      password: ""
+      password: "",
+      address:'',
+      phone:''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -101,7 +103,7 @@ class Register extends Component{
                       type ="address"
                       name = "address"
                       placeholder="Full address"
-                      value={this.state.address}
+                      value={this.state.phone}
                       onChange={this.onChange}
                   />
                 </Form.Group>

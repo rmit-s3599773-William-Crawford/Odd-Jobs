@@ -81,21 +81,21 @@ import axios from "axios";
                 
                 <Form.Group controlId="formBasicFirstName" className="txtbEdit">
                     <Form.Control
-                        type="name"
-                        name = "firstname"
-                        placeholder="First name"
+                        type="text"
+                        name = "firstName"
+                        placeholder="First Name"
                         value={this.state.firstName}
                         onChange={this.onChange}
                     />
                 </Form.Group>
 
-                <Form.Group controlId="formBasiclName" className="txtbEdit">
+                <Form.Group controlId="formBasicLastName" className="txtbEdit">
                   <Form.Control
-                      type="name"
-                      name = "lastname"
-                      placeholder="Last name"
-                      value={this.state.lastName}
-                      onChange={this.onChange}
+                     type="text"
+                     name = "lastName"
+                     placeholder="Last Name"
+                     value={this.state.lastName}
+                     onChange={this.onChange}
                   />
                 </Form.Group>
 

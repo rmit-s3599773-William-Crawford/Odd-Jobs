@@ -8,6 +8,7 @@ import contactUs from "./components/pages/Home page/Contact/contactUs";
 import Register from "./components/pages/Register page/Register";
 import Profile from "./components/pages/Profile page/Profile";
 import Job from "./components/pages/JobPosting Page/job";
+import Inbox from "./components/pages/Inbox Page/inbox";
 import Edit_Profile from "./components/pages/Profile page/Edit_Profile";
   
 export class App extends Component {
@@ -28,7 +29,7 @@ export class App extends Component {
                             <Route exact path="/about" component={About} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/contact" component={contactUs} />
-                            <Route exact path="/inbox" component={contactUs} />
+                            <Route exact path="/inbox" component={Inbox} />
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/job" component={Job} />
