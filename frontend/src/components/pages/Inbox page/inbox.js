@@ -24,7 +24,5 @@ class Inbox extends Component {
             </>
     
     );
-    
     } }
     export default Inbox;
-

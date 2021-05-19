@@ -8,7 +8,6 @@ import contactUs from "./components/pages/Home page/Contact/contactUs";
 import Register from "./components/pages/Register page/Register";
 import Profile from "./components/pages/Profile page/Profile";
 import Job from "./components/pages/JobPosting Page/job";
-import Inbox from "./components/pages/Inbox Page/inbox";
 import Edit_Profile from "./components/pages/Profile page/Edit_Profile";
 import Inbox from './components/pages/Inbox page/inbox';
   
