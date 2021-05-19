@@ -103,7 +103,7 @@ class Register extends Component{
                       type ="address"
                       name = "address"
                       placeholder="Full address"
-                      value={this.state.phone}
+                      value={this.state.address}
                       onChange={this.onChange}
                   />
                 </Form.Group>

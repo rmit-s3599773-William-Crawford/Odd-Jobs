@@ -11,33 +11,49 @@ import axios from "axios";
             super()
         this.state = {
             id:'',
-            userID:'',
             username:'',
             fullname:'',
             address:'',
-            errorMsg:'',
             phone:''
 
         }
         this.setUserDetails()
     }
 
-    //TODO Setting entire state not implemented, currently only sets username.
     setUserDetails() {
         var response
-        var data
+        var id
+        var email
+        var firstName
+        var lastName
+        var address
+        var phone
+
+ 
 
         response = axios.get("api/user/current")
             .then((response) => {
-                console.log(response)
-                    data = response.data.email;
-                console.log(data)
-                    this.state.username = data;
+                id = response.data.id;
+                email = response.data.email;
+                firstName = response.data.firstName;
+                lastName = response.data.lastName;
+                address = response.data.address;
+                phone = response.data.phone;
 
+                this.state.id = id;
+                this.state.email = email;
+                this.state.firstName = response.data.firstName;
+                this.state.lastName = response.data.lastName;
+                this.state.address = address;
+                this.state.phone = phone;
+ 
                 //refresh state for display
                     this.setState(this.state)
             })
     }
+
+
+
 
     deleteUser() {
         return function () {
@@ -66,23 +82,37 @@ import axios from "axios";
                     <table style={{ width: '700px' }} >
                         <thead>
                             <tr>
-                                <td>Email</td>
+                                {/* <td>Email</td> */}
                                 <td>Full name</td>
                                 <td>Personal address</td>
                                 <td>Phone</td>
-                                <td>Expertise/Field</td>
-
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td> {this.state.username}</td>
-                                <td> {this.state.fullname}</td>
+                                {/* <td> {this.state.username}</td> */}
+                                <td> {this.state.firstName} {this.state.lastName}</td>
                                 <td>{this.state.address}</td>
+                                <td>{this.state.phone}</td>
                             </tr>
                         </tbody>
                     </table>
                     <br/>
+                    <table style={{ width: '550px' }} >
+                    <thead>
+                            <tr>
+                                <td>Email</td>
+                                <td>Expertise/Field</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {this.state.email}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+
                     <Button
                         className='btnEdt'
                         href={'/editprofile'}
