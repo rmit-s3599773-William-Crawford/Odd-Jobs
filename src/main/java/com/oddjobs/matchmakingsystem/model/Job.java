@@ -1,32 +1,40 @@
 package com.oddjobs.matchmakingsystem.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Getter
+@Setter
+@Builder
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name = "Jobs")
 public class Job {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String jobName;
-    private String Field;
-    private String Description;
-    private String Prerequisites;
-    
-    protected Job(){}
 
-    public Job(String jobName, String Field, String Description, String Prerequisites) {
-        this.jobName = jobName;
-        this.Field= Field;
-        this.Description = Description;
-        this.Prerequisites = Prerequisites;
+    private Long userId;
+    private String userEmail;
+    private String title;
+    private String field;
+    private String description;
+    private String requirements; //TODO not currently used
+    private String location;
+
+    public Job(Long userId, String userEmail, String title, String field, String description, String location) {
+        this.userId = userId;
+        this.userEmail = userEmail;
+        this.title = title;
+        this.field= field;
+        this.description = description;
+        this.location = location;
     }
 
     public Long getID() {
@@ -37,35 +45,59 @@ public class Job {
         this.id= id;
     }
 
-    public String getjobName() {
-        return jobName;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setJobName(String jobName) {
-        this.jobName = jobName;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getField() {
-        return Field;
+        return field;
     }
 
-    public void setField(String Field) {
-        this.Field = Field;
+    public void setField(String field) {
+        this.field = field;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String Description) {
-        this.Description =  Description;
+        this.description =  Description;
     }
 
-    public String getPrereqiusites() {
-        return Prerequisites;
+    public String getRequirements() {
+        return requirements;
     }
 
-    public void setPrerequisites(String Prerequisites) {
-        this.Prerequisites = Prerequisites;
+    public void setRequirements(String requirements) {
+        this.requirements = requirements;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
