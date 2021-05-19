@@ -3,36 +3,36 @@
     padding: 0;
   }
    
-  body {
+  /* body {
     margin: 25px auto;
     font-family: "Calibri";
     font-weight: 350;
-  }
+  } */
    
-  form {
+  #inboxform {
     padding: 20px 30px;
     display: flex;
     gap: 15px;
     justify-content: center;
   }
-  form label {
+  /* form label {
     font-size: 1.5rem;
     font-weight: bold;
-  }
+  } */
    
   input {
-    font-family: "Lato";
+    font-family: "Calibri";
   }
    
-  a {
+  /* a {
     color: #00b7ff;
     text-decoration: none;
   }
    
   a:hover {
     text-decoration: underline;
-  }
-  #wrapper{
+  } */
+  #inboxwrapper{
     margin: 0 auto;
     padding-bottom: 5px;
     background: #eee;
@@ -75,7 +75,7 @@
   .error {
     color: #ff0000;
   }
-  #exit {
+  #inboxexit {
     color: rgb(0, 0, 0);
     background: #ff0000;
     padding: 2px;
