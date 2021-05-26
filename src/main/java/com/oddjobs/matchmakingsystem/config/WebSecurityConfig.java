@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/user/register",
 
                         "/h2" //TODO Must be removed for production
-                    //    ,"/**"
+//                       ,"/**"
                 )
                 .permitAll()
                 .anyRequest().authenticated()

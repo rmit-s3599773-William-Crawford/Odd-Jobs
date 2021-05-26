@@ -9,14 +9,10 @@ import com.oddjobs.matchmakingsystem.service.UserService;
 import com.oddjobs.matchmakingsystem.service.UserTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-//import com.google.cloud.datastore.Datastore;
-//import com.google.cloud.datastore.DatastoreOptions;
-//import com.google.cloud.datastore.Entity;
-//import com.google.cloud.datastore.Key;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,7 +37,7 @@ public class UserController {
     public User registerUser(@RequestBody User user) {
         System.out.println("Register User");
 
-        userService.registerUser(user);
+        userService.saveUser(user);
         return user;
 
 //        String kind = "User";
@@ -136,13 +132,15 @@ public class UserController {
     @GetMapping("/current")
     public ResponseEntity<String> getCurrentUserDetails() {
         String userDetails;
-
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long currentUserId;
-        currentUserId = ((User)principal).getId();
 
-        userDetails = userService.getUserDetailsById(currentUserId);
-
-        return ResponseEntity.ok(userDetails);
+        if(!principal.toString().equals("anonymousUser")) {
+            Long currentUserId = ((User)principal).getId();
+            userDetails = userService.getUserDetailsById(currentUserId);
+            return ResponseEntity.ok(userDetails);
+        }
+        else {
+            return ResponseEntity.ok("User is not signed in");
+        }
     }
 }
