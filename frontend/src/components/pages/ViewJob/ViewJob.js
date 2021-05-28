@@ -3,21 +3,53 @@ import { Container, Button } from "react-bootstrap";
 import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
 import './ViewJob.css';
-
+import axios from "axios";
 
 class ViewJob extends Component {
     constructor() {
         super()
         this.state = {
-            id: '',
-            title: '',
-            description: '',
-            classification: '',
-            location: '',
-            contact: '',
-
-        }
+      userId:'',
+      userEmail:'',
+      title: '',
+      field: '',
+      description: '',
+      location: '',
+    };
+    this.setJobDetails()
     }
+    
+     setJobDetails() {
+        var response
+        var userId
+        var userEmail
+        var title
+        var field
+        var description
+        var location
+
+ 
+
+        response = axios.get("api/job/current")
+            .then((response) => {
+                userId = response.data.userId;
+                userEmail = response.data.userEmail;
+                title = response.data.title;
+                field = response.data.field;
+                description = response.data.description;
+                location = response.data.location;
+
+                this.state.userId = userId;
+                this.state.userEmail = userEmail;
+                this.state.title = response.data.title;
+                this.state.field = response.data.field;
+                this.state.description = description;
+                this.state.location = location;
+
+                    this.setState(this.state)
+            })
+    }
+
 
     render() {
         return (
@@ -33,8 +65,8 @@ class ViewJob extends Component {
                             <td>{this.state.title}</td>
                         </tr>
                         <tr>
-                            <td>Classification:</td>
-                            <td>{this.state.classification}</td>
+                            <td>Field:</td>
+                            <td>{this.state.field}</td>
                         </tr>
                         <tr>
                             <td>Description:</td>
@@ -46,10 +78,10 @@ class ViewJob extends Component {
                         </tr>
                         <tr>
                             <td>Contact:</td>
-                            <td>{this.state.contact}</td>
+                            <td>{this.state.userEmail}</td>
                         </tr>
                     </table>
-                    <br />
+                    <br/>
                 </div>
             </Container>
 
