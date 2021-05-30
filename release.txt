@@ -1,0 +1,33 @@
+1.0.0 (2021.05.30)
+=================
+Fix:
+    - Added release.txt
+
+1.0.0 (2021.05.30)
+=================
+Working features:
+    - User functions
+        - User registration
+	    - User login
+	    - User edit
+	    - User delete
+    - Post Job
+
+Non-working features:
+	- Edit job
+	    - Delete/Complete job
+	- Find jobs
+	    - View job
+	- View other user
+	    - Chat with other users
+	- Skills/expertise addition
+	    - Matchmaking algorithm
+	- Cloud deployment
+
+Bugs:
+    - Google Cloud deployment sluggish
+	    - Datastore integration incomplete
+	    - Google Cloud deployment breaks repository functions
+	- Server-side session handling incomplete
+	- Server-side input validation
+
