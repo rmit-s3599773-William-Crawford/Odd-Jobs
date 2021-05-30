@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe(" Profile Details unit Test", ()=> {
     //Tests will pass for props
     it("Should return all constructor props correctly", ()=>{
-        const eData = shallow(< Profile email= "email@hotmail.come" />).props();
+        const eData = shallow(< Profile email= "email@hotmail.com" />).props();
         const aData = shallow(< Profile address= "00 Barak st" />).props();
         const fData = shallow(< Profile username= "Jon smith" />).props();
         expect(1).toEqual(1);
@@ -17,7 +17,7 @@ describe(" Profile Details unit Test", ()=> {
 
      //Tests will fail for props
      it("Should not return all constructor props correctly", ()=>{
-        const eData = shallow(< Profile email= "email@hotmail.come" />).props();
+        const eData = shallow(< Profile email= "email@hotmail.com" />).props();
         const aData = shallow(< Profile address= "00 Barak st" />).props();
         const fData = shallow(< Profile username= "Jon smith" />).props();
         expect(1).toEqual(0);
@@ -29,14 +29,14 @@ describe(" Profile Details unit Test", ()=> {
         
         const Data =
         {
-            email:'email@hotmail.come',
+            email:'email@hotmail.com',
             username:'Sarah dan',
             dateOfBirth: '12/04/1993',
             address:'55 Flinders st',
             phone: '0000055555',
         
         };
-        expect(Data.email).toBe('email@hotmail.come');
+        expect(Data.email).toBe('email@hotmail.com');
         expect(Data.username).toBe('Sarah dan');
         expect(Data.dateOfBirth).toBe('12/04/1993');
         expect(Data.address).toBe('55 Flinders st');
@@ -48,14 +48,14 @@ describe(" Profile Details unit Test", ()=> {
         
         const Data =
         {
-            email:'email@hotmail.come',
+            email:'email@hotmail.com',
             username:'Sarah dan',
             dateOfBirth: '12/02/1993',
             address:'55 Flinders st',
             phone: '0000055555',
         
         };
-        expect(Data.email).toBe('email@hotmail.come');
+        expect(Data.email).toBe('email@hotmail.com');
         expect(Data.username).toBe('Sarah dan');
         expect(Data.dateOfBirth).toBe('12/04/1993');
         expect(Data.address).toBe('55 Flinders st');
