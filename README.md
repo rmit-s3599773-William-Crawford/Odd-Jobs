@@ -64,7 +64,7 @@ Ensure your development environment has been set up correctly.
 This will deploy the application to whichever project you set during `gcloud init` earlier
 It may take a few minutes to complete.
 
-## VS Code Extensionss
+## VS Code Extensions
 
 I recommend these extensions:
 
