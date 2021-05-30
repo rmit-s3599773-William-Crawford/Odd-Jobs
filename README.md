@@ -1,5 +1,13 @@
 # Spring Boot Java and React JS Application start up
 
+## URLS
+
+[GitHub Repository](https://github.com/rmit-s3599773-William-Crawford/Odd-Jobs)
+
+[Application running on Google Cloud](https://odd-jobs-309303.uc.r.appspot.com/)
+
+## Development Guide
+
 This project uses Maven alongside Webpack to build, and can be run on Google Cloud App Engine
 
 ## Install JDK, Maven, and Google Cloud SDK
