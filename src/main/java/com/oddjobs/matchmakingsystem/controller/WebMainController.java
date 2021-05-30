@@ -48,5 +48,5 @@ public class WebMainController {
     @RequestMapping(value = "/editprofile")
     public String editProfile() {
         return "edit_profile";
-    }
+    }    
 }

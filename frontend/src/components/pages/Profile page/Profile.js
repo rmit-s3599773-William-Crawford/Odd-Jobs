@@ -62,6 +62,7 @@ import axios from "axios";
                 window.alert("Account Successfully deleted")
                 axios.delete("api/user/current/delete")
                 window.location.replace("http://localhost:8080/login")
+                window.sessionStorage.clear();
             }else if(msg == false) {
                 
             }

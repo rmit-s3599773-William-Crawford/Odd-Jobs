@@ -10,6 +10,8 @@ import Profile from "./components/pages/Profile page/Profile";
 import Job from "./components/pages/JobPosting Page/job";
 import Edit_Profile from "./components/pages/Profile page/Edit_Profile";
 import Inbox from './components/pages/Inbox page/inbox';
+import ViewJob from "./components/pages/ViewJob/ViewJob";
+
   
 export class App extends Component {
     constructor(props) {
@@ -29,12 +31,13 @@ export class App extends Component {
                             <Route exact path="/about" component={About} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/contact" component={contactUs} />
-                            <Route exact path="/inbox" component={Inbox} />
                             <Route exact path="/register" component={Register} />
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/job" component={Job} />
                             <Route exact path="/editprofile" component={Edit_Profile} />
                             <Route exact path="/inbox" component={Inbox} />
+                            <Route exact path="/viewJobs" component={ViewJob} />
+
                         </Switch>
                     </div>
                 </Router>

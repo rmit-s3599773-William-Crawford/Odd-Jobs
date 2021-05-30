@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Form, Container, Row } from "react-bootstrap";
-import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import './Login.css';
 import axios from "axios";
 
@@ -12,6 +11,7 @@ class Login extends Component{
     this.state = {
       username: "",
       password: "",
+      logOut: "",
       roles: "USER"
     };
 
@@ -25,6 +25,7 @@ class Login extends Component{
 
   //Attempts to log in the user
   onSubmit(e) {
+
     console.log(this.state);
     e.preventDefault();
     axios({
@@ -35,12 +36,89 @@ class Login extends Component{
         password: this.state.password
       }
     }).finally(()=> {
-      alert("Successfully Loggedin");
-      window.location.replace("http://localhost:8080/job");
+        alert("Successfully Loggedin");
+        window.location.replace("http://localhost:8080/job");
+        if(window.sessionStorage.setItem("loggedIn", true)){
+          // window.location.reload(true);
+        } 
+        else  if ( window.sessionStorage.setItem('loggedOut', true))
+          {
+            // this.LogOut();
+            // sessionStorage.clear();
+            // return function () {
+            //   var msg = window.confirm("LogOut?")
+            //   if (msg) {
+            //       window.alert("LoggingOut plesse wait");
+            //       // sessionStorage.clear();
+            //       window.location.reload();
+            //       window.location.replace("http://localhost:8080/login?logout")
+            //       window.sessionStorage.clear();
+            //   }else if(msg == false) {
+                  
+            //   }
+            // }
+          } 
+
+          // else  if (window.sessionStorage.setItem('loggedOut' ,true))
+          // {
+          //   window.sessionStorage.clear();
+          //   window.location.reload();
+            // window.sessionStorage.getItem('loggedOut') == 'false';
+
+            // window.sessionStorage.setItem('loggedOut', true);
+            // sessionStorage.clear();
+          //} 
+          // else  if (window.sessionStorage.setItem('loggedOut', 'true'))
+          // {
+          //   // localStorage.clear();
+          // }
+          else  
+          {
+          }
     })
+    //.then(()=> {
+        // if (window.sessionStorage.setItem('loggedOut' ,true))
+        // {
+        //     window.sessionStorage.clear();
+        //     window.location.reload();
+        // } else{
+
+        // }
+        // return function () {
+        //   var msg = window.confirm("LogOut?")
+        //   if (msg && (window.sessionStorage.setItem('loggedOut' ,true))) {
+        //       window.alert("LoggingOut plesse wait");
+        //       // sessionStorage.clear();
+        //       // window.location.reload();
+        //       window.location.replace("http://localhost:8080/login?logout")
+        //       window.sessionStorage.clear();
+        //   }else if(msg == false) {
+              
+        //   }
+        // }
+
+     // })
+
   }
 
- 
+
+//   LogOut()
+// {
+//     return function ()
+//     {
+//       var msg = window.confirm("LogOut?")
+//       if (msg)
+//       {
+//           window.alert("LoggingOut plese wait");
+//           // sessionStorage.clear();
+//           // window.location.reload();
+//           window.location.replace("http://localhost:8080/login?logout")
+//           window.sessionStorage.clear();
+//       }else if(msg == false) {}
+//     }
+//   }
+      
+  
   
   render() {
       return (

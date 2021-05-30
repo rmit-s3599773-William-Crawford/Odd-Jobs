@@ -9,16 +9,103 @@ class HomeNaveBar extends Component {
         this.state = {
             click: false,
             loggedIn: this.props.loggedIn,
+            username: this.props.username,
+            logOut: "",
+
+
         }
     }
     
-    // handleClick = () => {
-    //     this.setState({click: !this.state.click})
-    // }
+    handleClick(){
+        this.setState({click: !this.state.click});
+        // return function ()
+        // {
+        //   var msg = window.confirm("LogOut?")
+        //   if (msg)
+        //   {
+        //       window.alert("LoggingOut plese wait");
+        //       // sessionStorage.clear();
+        //       // window.location.reload();
+        //       window.location.replace("http://localhost:8080/login?logout")
+        //       window.sessionStorage.clear();
+        //   }else if(msg == false) {}
+        // }
+
+    }
+
+    // LogOut()
+    // {
+    //     var txt;
+    //      txt = confirm("Press a button!\nEither OK or Cancel.\nThe button you pressed will be displayed in the result window.");
+    //     if (txt === true && logOut === "Logout" ) {
+    //         aleart("You pressed OK!");
+    //     } else {
+    //         aleart("You pressed Cancel!");
+    //     }
+    //     return function ()
+    //     {
+    //       var msg = window.confirm("LogOut?")
+    //       if (msg)
+    //       {
+    //           window.alert("LoggingOut plese wait");
+    //           // sessionStorage.clear();
+    //           // window.location.reload();
+    //           window.location.replace("http://localhost:8080/login?logout")
+    //           window.sessionStorage.clear();
+    //       }else if(msg == false) {}
+    //     }
+      //}
 
     render() {
         var MenuItems = []
-        if (this.state.loggedIn) {
+        if ( window.sessionStorage.getItem('loggedIn') == 'true') {
+            MenuItems = [
+               
+                {
+                    
+                    title: 'About',
+                    url: '/about',
+                    cName: 'nav-links',
+                },
+                {
+                   
+                    title: 'Inbox',
+                    url: '/inbox',
+                    cName: 'nav-links',
+                },
+                {
+                   
+                    title: 'Contact us',
+                    url: '/contact',
+                    cName: 'nav-links',
+                },
+
+                {
+                   
+                    title: ' Profile',
+                    url: '/profile',
+                    cName: 'nav-links',
+                },
+
+                {
+                    title: 'Post job',
+                    url: '/job',
+                    cName: 'nav-links',
+                },
+
+                {   
+                    title: 'Logout',
+                    url: '/logout',
+                    icon: <Icons.BsBoxArrowRight />,
+                    cName: 'nav-links-logout',
+                    // onClick: onClick=this.LogOut(),
+                    
+                    
+                    
+                }
+            ]
+        }
+        else if ( window.sessionStorage.getItem('loggedOut') == 'true') {
             MenuItems = [
                
                 {
@@ -54,16 +141,15 @@ class HomeNaveBar extends Component {
                 },
 
                 {
-                   
-                    title: 'Logout',
-                    url: '/logout',
-                    icon: <Icons.BsBoxArrowRight />,
-                    cName: 'nav-links-logout',
+                    title: 'Log In',
+                    url: '/login',
+                    icon: <Icons.BsPeopleCircle />,
+                    cName: 'nav-links-login',
                 }
             ]
         }
-      
-        else {
+        
+        else{
             MenuItems = [
                 {
                     title: 'About',
@@ -118,6 +204,9 @@ class HomeNaveBar extends Component {
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.click ? 'fas fa-times': 'fas fa-bars'}></i>
                 </div>
+                {/* <div className="nav-links-logout:hover" onClick={this.LogOut()}>
+                <i className={this.state.click ? 'fas fa-times': 'fas fa-bars'}></i>
+                </div> */}
                 <ul className={this.state.click ? 'nav-menu active':'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
