@@ -2,20 +2,12 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
-import com.oddjobs.matchmakingsystem.model.UserToken;
 import com.oddjobs.matchmakingsystem.repository.UserRepository;
-
 import com.oddjobs.matchmakingsystem.service.UserService;
-import com.oddjobs.matchmakingsystem.service.UserTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -28,31 +20,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private UserTokenService userTokenService;
-
-//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
         System.out.println("Register User");
 
         userService.saveUser(user);
         return user;
-
-//        String kind = "User";
-//        String name = user.getEmail();
-//        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
-//
-//        Entity newUser = Entity.newBuilder(userKey)
-//                .set("firstName", user.getFirstName())
-//                .set("lastName", user.getLastName())
-//                .set("email", user.getEmail())
-//                .set("username", user.getUsername())
-//                .set("password", user.getPassword())
-//                .build();
-//
-//        datastore.put(newUser);
     }
 
     @PutMapping("/update")
@@ -68,14 +41,6 @@ public class UserController {
         return user;
     }
 
-    //TODO Remove for production
-    @GetMapping("/all")
-    public ResponseEntity<List<User>> getUsers() {
-        return ResponseEntity.ok(
-                this.userRepository.findAll()
-        );
-    }
-
     //TODO redo
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long id) {
@@ -84,24 +49,6 @@ public class UserController {
         );
 
         return ResponseEntity.ok().body(user);
-    }
-
-    //TODO redo
-    @PutMapping("/{id}")
-    public User updateUser(@RequestBody User newUser, @PathVariable(value = "id") Long id) {
-        return this.userRepository.findById(id)
-                .map(user-> {
-                    user.setFirstName(newUser.getFirstName());
-                    user.setLastName(newUser.getLastName());
-                    user.setEmail(newUser.getEmail());
-                    user.setUsername(newUser.getUsername());
-                    user.setPassword(newUser.getPassword());
-                    return this.userRepository.save(user);
-                })
-                .orElseGet(()-> {
-                    newUser.setId(id);
-                    return this.userRepository.save(newUser);
-                });
     }
 
     //TODO Redo
@@ -121,7 +68,7 @@ public class UserController {
         Long currentUserId;
         currentUserId = ((User)principal).getId();
 
-        userService.deleteUserDetailsById(currentUserId);
+        userService.deleteUserById(currentUserId);
 
         //Force log out after deleting the user.
         SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false);

@@ -1,6 +1,6 @@
 # Spring Boot Java and React JS Application start up
 
-This project uses Webpack alongside Maven to build and run.
+This project uses Maven alongside Webpack to build, and can be run on Google Cloud App Engine
 
 ## Install JDK, Maven, and Google Cloud SDK
 
@@ -31,7 +31,7 @@ You can now run Maven goals through powershell and inside Visual Studio Code ter
 
 Follow the installation instructions for [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
 
-Make sure to run `gcloud init` and set your project to Odd-Jobs.
+Make sure to run `gcloud init` and set your project to one you have access to.
 
 ## Available Scripts
 
@@ -55,7 +55,16 @@ This allows you to view changes without restarting the Spring Boot app.
 
 Open [http://localhost:8080](http://localhost:8080) in your browser to access the application.
 
-## VS Code Extensions
+## For Cloud Deployment
+
+Ensure your development environment has been set up correctly.
+
+### `mvn package appengine:deploy`
+
+This will deploy the application to whichever project you set during `gcloud init` earlier
+It may take a few minutes to complete.
+
+## VS Code Extensionss
 
 I recommend these extensions:
 

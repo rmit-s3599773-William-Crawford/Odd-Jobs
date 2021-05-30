@@ -12,6 +12,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 @DataJpaTest
 public class UserTests {
 
+    //Below is a basic testing template taken from https://medium.com/swlh/spring-boot-and-react-js-fullstack-application-7ad99139e95c
+    //TODO Needs to be done to match the new program architecture, tests are currently useless
+
     @Autowired
     private UserRepository userRepository;
 

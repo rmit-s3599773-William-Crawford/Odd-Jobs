@@ -2,9 +2,7 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.Job;
-import com.oddjobs.matchmakingsystem.model.User;
 import com.oddjobs.matchmakingsystem.repository.JobRepository;
-
 import com.oddjobs.matchmakingsystem.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,35 +22,12 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-
-//    @Autowired
-//    public JobController(JobRepository jobRepository) {
-//        this.jobRepository = jobRepository;
-//    }
-
     @PostMapping("/post")
     public Job postJob(@RequestBody Job job) {
-        //TODO Debug print
-        System.out.println("Posting Job" + job.getTitle());
 
         jobService.saveJob(job);
 
         return job;
-
-//        String kind = "Job";
-//        String name = "firstjob1";
-//        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
-//
-//        Entity newJob = Entity.newBuilder(userKey)
-//                .set("firstName", job.getFirstName())
-//                .set("lastName", job.getLastName())
-//                .set("email", job.getEmail())
-//                .set("username", job.getUsername())
-//                .set("password", job.getPassword())
-//                .build();
-//
-//        datastore.put(newJob);
     }
 
     @GetMapping("/all")

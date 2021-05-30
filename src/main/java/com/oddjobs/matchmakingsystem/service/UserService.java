@@ -1,9 +1,7 @@
 package com.oddjobs.matchmakingsystem.service;
 
 import com.google.gson.Gson;
-import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
-import com.oddjobs.matchmakingsystem.model.UserToken;
 import com.oddjobs.matchmakingsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,43 +21,21 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Autowired
-    private UserTokenService userTokenService;
-
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void saveUser(User user) {
         String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
-
-        User registeredUser = userRepository.save(user);
-        // user.setEnabled(true);
-
-        UserToken userToken = new UserToken(user);
-        userTokenService.saveUserToken(userToken);
-
-        // Skip third party confirmation
-        confirmUser(userToken);
-    }
-
-    public void confirmUser(UserToken userToken) {
-        User user = userToken.getUser();
-
         user.setEnabled(true);
 
         userRepository.save(user);
-
-        userTokenService.deleteUserToken(userToken.getId());
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        System.out.println("loadUserByUsername");
         Optional<User> user = userRepository.findByEmail(email);
 
         if (user.isPresent()) {
-            System.out.println("User is present: ");
-            System.out.print(user.toString());
             return user.get();
         }
         else {
@@ -105,7 +81,7 @@ public class UserService implements UserDetailsService {
         return userDetails;
     }
 
-    public boolean deleteUserDetailsById(Long id) {
+    public boolean deleteUserById(Long id) {
         User user = new User();
         if(userRepository.findById(id).isPresent())
             user = userRepository.findById(id).get();
