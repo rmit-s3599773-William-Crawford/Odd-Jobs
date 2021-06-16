@@ -4,7 +4,7 @@ module.exports = {
     entry: './frontend/src/App.js',
     devtool: 'source-map',
     cache: true,
-    mode: 'development',
+    mode: 'production',
     output: {
         path: __dirname,
         filename: 'bundle.js',

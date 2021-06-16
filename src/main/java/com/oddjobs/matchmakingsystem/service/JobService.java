@@ -2,6 +2,7 @@ package com.oddjobs.matchmakingsystem.service;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.Job;
+import com.oddjobs.matchmakingsystem.model.User;
 import com.oddjobs.matchmakingsystem.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,28 @@ public class JobService {
 
         this.jobRepository.delete(job);
 
+        return true;
+    }
+
+    public boolean updateJob(Job job) {
+        Long id = job.getId();
+        Job savedJob = new Job();
+        if(jobRepository.findById(id).isPresent())
+            savedJob = jobRepository.findById(id).get();
+
+        //If an attribute of the new User is empty, do not replace it.
+        if(!job.getTitle().equals(""))
+            savedJob.setTitle(job.getTitle());
+        if(!job.getField().equals(""))
+            savedJob.setField(job.getField());
+        if(!job.getDescription().equals(""))
+            savedJob.setDescription(job.getDescription());
+        if(!job.getRequirements().equals(""))
+            savedJob.setRequirements(job.getRequirements());
+        if(!job.getLocation().equals(""))
+            savedJob.setLocation(job.getLocation());
+
+        jobRepository.save(savedJob);
         return true;
     }
 }
