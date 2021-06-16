@@ -19,6 +19,7 @@ import axios from "axios";
             email:'',
             password:'',
             address:'',
+            expertise:'',
             phone:''
         };
         //Get ID of current User to send with form submission
@@ -48,8 +49,6 @@ import axios from "axios";
      
       
     }
-  
-  
   
     render () {
         return (      
@@ -123,7 +122,6 @@ import axios from "axios";
                   <Button
                     type="submit"
                     variant="primary"
-                    // onClick={(event) => this.handleClick(event)}
                     className="Editbtn"
                    >
                     <GiSave/>

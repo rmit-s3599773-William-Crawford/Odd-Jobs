@@ -25,7 +25,6 @@ class Login extends Component{
 
   //Attempts to log in the user
   onSubmit(e) {
-
     console.log(this.state);
     e.preventDefault();
     axios({

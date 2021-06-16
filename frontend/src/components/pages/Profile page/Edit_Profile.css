@@ -1,3 +1,4 @@
+
 .edit-form{
     width: 470px;
     background: #cde0e2;
@@ -7,7 +8,8 @@
     position: absolute;
     left: 50%;
     top: 53%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);/* (right, down*/
+
   }
   .edit-form h1{
     text-align: center;

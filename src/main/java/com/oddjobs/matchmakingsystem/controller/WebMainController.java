@@ -49,4 +49,9 @@ public class WebMainController {
     public String editProfile() {
         return "edit_profile";
     }    
+
+    @RequestMapping(value = "/viewJobs")
+    public String viewJobs() {
+        return "viewJob";
+    }  
 }

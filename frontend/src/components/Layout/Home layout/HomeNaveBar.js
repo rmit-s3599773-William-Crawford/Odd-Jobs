@@ -10,7 +10,7 @@ class HomeNaveBar extends Component {
             click: false,
             loggedIn: this.props.loggedIn,
             username: this.props.username,
-            logOut: "",
+            logOut:false,
 
 
         }
@@ -18,6 +18,8 @@ class HomeNaveBar extends Component {
     
     handleClick(){
         this.setState({click: !this.state.click});
+        this.setState({logOut: !this.state.logOut});
+
         // return function ()
         // {
         //   var msg = window.confirm("LogOut?")
@@ -36,12 +38,13 @@ class HomeNaveBar extends Component {
     // LogOut()
     // {
     //     var txt;
-    //      txt = confirm("Press a button!\nEither OK or Cancel.\nThe button you pressed will be displayed in the result window.");
-    //     if (txt === true && logOut === "Logout" ) {
+    //     txt = confirm("Press a button!\nEither OK or Cancel.\nThe button you pressed will be displayed in the result window.");
+    //     if ( this.state.logOut == true ) {
     //         aleart("You pressed OK!");
     //     } else {
     //         aleart("You pressed Cancel!");
     //     }
+
     //     return function ()
     //     {
     //       var msg = window.confirm("LogOut?")
@@ -54,7 +57,7 @@ class HomeNaveBar extends Component {
     //           window.sessionStorage.clear();
     //       }else if(msg == false) {}
     //     }
-      //}
+    //   }
 
     render() {
         var MenuItems = []
@@ -98,6 +101,7 @@ class HomeNaveBar extends Component {
                     url: '/logout',
                     icon: <Icons.BsBoxArrowRight />,
                     cName: 'nav-links-logout',
+                    logOut: 'Logout',
                     // onClick: onClick=this.LogOut(),
                     
                     
@@ -204,8 +208,8 @@ class HomeNaveBar extends Component {
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.click ? 'fas fa-times': 'fas fa-bars'}></i>
                 </div>
-                {/* <div className="nav-links-logout:hover" onClick={this.LogOut()}>
-                <i className={this.state.click ? 'fas fa-times': 'fas fa-bars'}></i>
+                {/* <div className="nav-links-logout:hover" onClick={this.handleClick()}>
+                <i className={this.state.logOut ? 'fas fa-times': 'fas fa-bars'}></i>
                 </div> */}
                 <ul className={this.state.click ? 'nav-menu active':'nav-menu'}>
                     {MenuItems.map((item, index) => {

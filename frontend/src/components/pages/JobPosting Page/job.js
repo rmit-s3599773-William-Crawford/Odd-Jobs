@@ -55,7 +55,8 @@ class Job extends Component{
     axios.post("/api/job/post", newJob)
         .finally( ()=> {
           alert("Job successfully created")
-          // window.history.back()
+          window.location.replace("http://localhost:8080/viewJobs");
+
         }
     )
   }
@@ -149,7 +150,6 @@ class Job extends Component{
               <Row>
                 <Button
                   variant="primary"
-                  // onClick={(event) => this.handleClick(event)}
                   className="jobbtn"
                   type="submit"
                   value="post"
