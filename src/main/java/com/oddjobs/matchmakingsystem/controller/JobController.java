@@ -70,21 +70,16 @@ public class JobController {
         return ResponseEntity.ok().body(job);
     }
 
-    @PutMapping("/{id}")
-    public Job updateJob(@RequestBody Job newJob, @PathVariable(value = "id") Long id) {
-//        return this.jobRepository.findById(id)
-//        .map(user-> {
-//            job.setName(newJob.getJob());
-//            job.setField(newJob.getField());
-//            job.setDescription(newJob.getDescription());
-//            job.setPrerequisites(newJob.getPrerequisites());
-//            return this.jobRepository.save(user);
-//        })
-//        .orElseGet(()-> {
-//            newUser.setId(id);
-//            return this.userRepository.save(newJob);
-//        });
-        return null;
+    @PutMapping("/update")
+    public Job updateJob(@RequestBody Job job) {
+        System.out.println("Update Job " + job.getId()
+                + " with title: " + job.getTitle()
+                + " with field: " + job.getField()
+                + " with description: " + job.getDescription()
+                + " with requirements: " + job.getRequirements()
+                + " with location: " + job.getLocation());
+        jobService.updateJob(job);
+        return job;
     }
 
     @DeleteMapping("/{id}")
