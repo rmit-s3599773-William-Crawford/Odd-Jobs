@@ -98,6 +98,17 @@ import axios from "axios";
                   />
                 </Form.Group>
 
+                
+                <Form.Group  className="txtbEdit">
+                  <Form.Control
+                     type="text"
+                     name = "expertise"
+                     placeholder="Expertise or Field"
+                     value={this.state.expertise}
+                     onChange={this.onChange}
+                  />
+                </Form.Group>
+
                 <Form.Group controlId="formBasicPhone" className="txtbEdit">
                   <Form.Control
                       type="phone"

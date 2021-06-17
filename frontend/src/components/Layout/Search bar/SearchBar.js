@@ -9,6 +9,8 @@ class SearchBar extends Component{
 
     handleClick(event) {
         console.log(this.state);
+        window.location.replace("http://localhost:8080/jobListResult")
+
        
         };
     
@@ -36,7 +38,9 @@ class SearchBar extends Component{
                         </select>
                       
                         <ReactBootstrap.Button              
-                            onClick={(event) => this.handleClick(event)} type="submit" className="searchbtn">
+                            onClick={(event) => this.handleClick(event)}
+                            type="submit" className="searchbtn"
+                             >
                             <ImSearch/>
                         </ReactBootstrap.Button>
                     </div>

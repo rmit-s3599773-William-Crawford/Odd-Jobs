@@ -1,22 +1,38 @@
 import React, { Component } from 'react';
-import { Container, Button } from "react-bootstrap";
+import {Container, Button} from "react-bootstrap";
 import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
 import './ViewJob.css';
+import axios from "axios";
 
-
-class ViewJob extends Component {
+class jobList extends Component {
     constructor() {
         super()
         this.state = {
-            jobId: '',
-            title: '',
-            description: '',
-            classification: '',
-            location: '',
-            jobs: []
+      userId:'',
+      userEmail:'',
+      title: '',
+      description: '',
+      location: '',
+    };
+    this.setJobDetails()
+    }
 
-        }
+     setJobDetails() {
+        var response
+        var userEmail
+        var title
+        var description
+        var location
+
+        response = axios.get("api/job/all")
+            .then((response) => {
+                userEmail = response.data.userEmail;
+                title = response.data.title;
+                description = response.data.description;
+                location = response.data.location;
+
+            })
     }
 
     render() {
@@ -25,7 +41,7 @@ class ViewJob extends Component {
                 <HomeNaveBar />
                 <SearchBar />
                 <div className="body">
-                    <h1>My Posted Jobs</h1>
+                    <h1>Jobs result</h1>
                     <h3>-----------------------------------</h3>
                     <table className="table">
                     <thead>
@@ -46,6 +62,16 @@ class ViewJob extends Component {
                             <tbody>
                                 <tr>
                                     <td>{this.state.title}</td>
+                                </tr>
+                            </tbody>
+                            <thead>
+                            <tr>
+                                <td>Name:</td>
+                            </tr>
+                     </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{this.state.name}</td>
                                 </tr>
                             </tbody>
                         <thead>
@@ -79,18 +105,16 @@ class ViewJob extends Component {
                                 </tr>
                             </tbody>
                         <tbody>
-                            <td >
-                                <Button
-                                    className="btnEdt"
-                                    style={{ float:'center', marginRight: '10px' }}>
-                                    Edit
-                                </Button>
-                                <Button
-                                    className="btnEdt"
-                                    style={{ float:'center' }}>
-                                    Delete
-                                </Button>
-                            </td>
+                            <tr>
+                                <td >
+                                    <Button
+                                        href="/inbox"
+                                        className="btnEdt"
+                                        style={{ float:'center', marginRight: '10px' }}>
+                                        Chat
+                                    </Button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <br />
@@ -102,4 +126,4 @@ class ViewJob extends Component {
 
 }
 
-export default ViewJob;
+export default jobList; 

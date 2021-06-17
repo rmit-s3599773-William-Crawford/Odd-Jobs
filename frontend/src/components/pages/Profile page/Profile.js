@@ -29,7 +29,7 @@ import axios from "axios";
         var address
         var phone
         var expertise
-
+        //Get and store current user
         response = axios.get("api/user/current")
             .then((response) => {
                 id = response.data.id;

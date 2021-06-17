@@ -54,4 +54,9 @@ public class WebMainController {
     public String viewJobs() {
         return "viewJob";
     }  
+
+    @RequestMapping(value = "/jobListResult")
+    public String jobListResult() {
+        return "jobList";
+    }  
 }
