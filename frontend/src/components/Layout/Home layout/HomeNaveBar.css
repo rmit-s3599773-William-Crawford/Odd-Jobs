@@ -176,6 +176,12 @@
 
     }
 
+    .fa-times{
+        /*X icon*/
+        color: white;
+        font-size: 2rem;
+    }
+
 
 
     .nav-links-mobile:hover{

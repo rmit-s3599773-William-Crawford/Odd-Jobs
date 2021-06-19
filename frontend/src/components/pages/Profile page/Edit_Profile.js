@@ -58,7 +58,7 @@ import axios from "axios";
                 <Form className="edit-form" onSubmit={this.onSubmit}>
                 <h1>Edit</h1>
                 <Form.Group  className="txtbEdit">
-                  <Form.Control controlId="formBasicEmail"
+                  <Form.Control
                       type = "email"
                       name = "email"
                       placeholder="Enter email"
@@ -68,7 +68,7 @@ import axios from "axios";
                   <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword" className="txtbEdit">
+                <Form.Group  className="txtbEdit">
                   <Form.Control
                       type="password"
                       name = "password"
@@ -78,7 +78,7 @@ import axios from "axios";
                   />
                 </Form.Group>
                 
-                <Form.Group controlId="formBasicFirstName" className="txtbEdit">
+                <Form.Group className="txtbEdit">
                     <Form.Control
                         type="text"
                         name = "firstName"
@@ -88,7 +88,7 @@ import axios from "axios";
                     />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicLastName" className="txtbEdit">
+                <Form.Group className="txtbEdit">
                   <Form.Control
                      type="text"
                      name = "lastName"

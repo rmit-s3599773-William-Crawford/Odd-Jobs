@@ -1,18 +1,16 @@
 import React, { Component } from "react";
+import Select from 'react-select';
 import * as ReactBootstrap from "react-bootstrap";
 import {Container} from "react-bootstrap";
 import { ImSearch } from 'react-icons/im';
-import './SearchBar.css'
-
-
+import './SearchBar.css';
 class SearchBar extends Component{
 
     handleClick(event) {
         console.log(this.state);
-        window.location.replace("http://localhost:8080/jobListResult")
+        window.location.replace("http://localhost:8080/jobListResult")   
+    };
 
-       
-        };
     
 
     render() {
@@ -33,10 +31,11 @@ class SearchBar extends Component{
                         <select className="form-control" name="categories" id="categories">
                             <option value="catg">All categories</option>
                             <option value="car">Fixing Car</option>
-                            <option value="babyS">babysitter</option>
+                            <option value="babyS">Babysitter</option>
                             <option value="DogW">Dog walker</option>
+                            
                         </select>
-                      
+                        
                         <ReactBootstrap.Button              
                             onClick={(event) => this.handleClick(event)}
                             type="submit" className="searchbtn"

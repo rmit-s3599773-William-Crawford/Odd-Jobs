@@ -6,8 +6,7 @@ import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
 import style from './job.css';
 import axios from "axios";
- 
- 
+import { BsArrowBarRight } from 'react-icons/bs';
 class Job extends Component{
   constructor(props) {
  
@@ -131,7 +130,8 @@ ShowHideOtherList(btnGarden) {
         />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
-      <span>Show</span>
+                    
+        <BsArrowBarRight/>
         <input id="btnItandTech" type="button" value=" IT and Technology" onClick={this.ShowHideItList} />
         <br />
         <div id="ItandTechList" style={{display: "none"}}>
@@ -140,9 +140,10 @@ ShowHideOtherList(btnGarden) {
             <li>Fix PC/Laptop<input type="checkbox" /></li>
             <li> Fix TV<input type="checkbox" /></li>
           </ul>
-
+          <br/>
         </div>
-          <span>Show</span>
+
+          <BsArrowBarRight/>
           <input id="btnGeneral" type="button" value="General" onClick={this.ShowHideGeneralList} />
           <div id="generalList" style={{display: "none"}}>
             <ul>
@@ -152,16 +153,18 @@ ShowHideOtherList(btnGarden) {
             </ul>
           </div>
           <br/>
-          <span>Show</span>
+
+          <BsArrowBarRight/>
           <input id="btnGarden" type="button" value="Garden" onClick={this.ShowHideGardenList} />
           <div id="gardenList" style={{display: "none"}}>
             <ul>
               <li>Grass mowing<input type="checkbox"/></li>
-              <li>crop cultivation<input type="checkbox" /></li>
+              <li>Crop cultivation<input type="checkbox" /></li>
               <li>Garden decoration<input type="checkbox" /></li>
             </ul>
           </div>
           <br/>
+
             <span>Other</span>
             <label id="other" htmlFor="other"> Other(includ in Job Description box)</label><br/>
               <textarea
