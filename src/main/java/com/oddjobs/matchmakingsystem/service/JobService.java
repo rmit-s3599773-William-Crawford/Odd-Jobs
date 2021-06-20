@@ -21,16 +21,10 @@ public class JobService {
     }
 
     public Job loadById(Long id) throws ResourceNotFoundException {
-
-        System.out.println("Loading Job by ID");
-
         Job job = new Job();
 
+        // Check if job exists, then get it from the job repository
         if(jobRepository.findById(id).isPresent()) {
-            //TODO Debug println
-            System.out.println("Job is present: ");
-            System.out.print(job.getTitle());
-            //
             job = jobRepository.findById(id).get();
             return job;
         }
@@ -39,6 +33,7 @@ public class JobService {
         }
     }
 
+    // Delete a Job using the Job's Id
     public boolean deleteJobById(Long id) {
         Job job = new Job();
         if(jobRepository.findById(id).isPresent())
@@ -49,6 +44,7 @@ public class JobService {
         return true;
     }
 
+    // Update Job values using a new Job object
     public boolean updateJob(Job job) {
         Long id = job.getId();
         Job savedJob = new Job();

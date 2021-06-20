@@ -2,20 +2,15 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
-import com.oddjobs.matchmakingsystem.model.UserToken;
 import com.oddjobs.matchmakingsystem.repository.UserRepository;
 
 import com.oddjobs.matchmakingsystem.service.UserService;
-import com.oddjobs.matchmakingsystem.service.UserTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -27,11 +22,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserTokenService userTokenService;
-
-//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
 
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {

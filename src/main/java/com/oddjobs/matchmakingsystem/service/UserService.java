@@ -1,9 +1,7 @@
 package com.oddjobs.matchmakingsystem.service;
 
 import com.google.gson.Gson;
-import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.User;
-import com.oddjobs.matchmakingsystem.model.UserToken;
 import com.oddjobs.matchmakingsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,35 +21,18 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Autowired
-    private UserTokenService userTokenService;
-
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    // Saves a User Object to the User repository
     public void saveUser(User user) {
         String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
 
-        User registeredUser = userRepository.save(user);
-        // user.setEnabled(true);
-
-        UserToken userToken = new UserToken(user);
-        userTokenService.saveUserToken(userToken);
-
-        // Skip third party confirmation
-        confirmUser(userToken);
-    }
-
-    public void confirmUser(UserToken userToken) {
-        User user = userToken.getUser();
-
         user.setEnabled(true);
-
-        userRepository.save(user);
-
-        userTokenService.deleteUserToken(userToken.getId());
+        User registeredUser = userRepository.save(user);
     }
 
+    // Gets a UserDetails Object from the User repository
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         System.out.println("loadUserByUsername");
@@ -67,6 +48,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
+    //Edits selected values of a User
     public boolean updateUser(User user) {
         Long id = user.getId();
         User savedUser = new User();
@@ -94,6 +76,7 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
+    // Get a User using the User's Id
     public String getUserDetailsById(Long id) {
         String userDetails = "";
         User user = new User();
@@ -105,6 +88,7 @@ public class UserService implements UserDetailsService {
         return userDetails;
     }
 
+    // Delete a User using the User's Id
     public boolean deleteUserDetailsById(Long id) {
         User user = new User();
         if(userRepository.findById(id).isPresent())

@@ -52,10 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/login*",
 
                         //Allowed API calls for unauthenticated users
-                        "/api/user/register",
-
-                        "/h2" //TODO Must be removed for production
-                    //   ,"/**"
+                        "/api/user/register"
                 )
                 .permitAll()
                 .anyRequest().authenticated()
@@ -72,17 +69,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
     }
-
-//    @Bean
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user =
-//                User.withDefaultPasswordEncoder()
-//                        .username("user")
-//                        .password("password")
-//                        .roles("USER")
-//                        .build();
-//
-//        return new InMemoryUserDetailsManager(user);
-//    }
 }

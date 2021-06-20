@@ -24,18 +24,8 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-//    private Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-
-//    @Autowired
-//    public JobController(JobRepository jobRepository) {
-//        this.jobRepository = jobRepository;
-//    }
-
     @PostMapping("/post")
     public Job postJob(@RequestBody Job job) {
-        //TODO Debug print
-        System.out.println("Posting Job" + job.getTitle());
-
         jobService.saveJob(job);
 
         return job;
@@ -82,6 +72,7 @@ public class JobController {
         return job;
     }
 
+    // TODO
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeJob(@PathVariable(value = "id") Long id) {
 //        User user = this.userRepository.findById(id).orElseThrow(
