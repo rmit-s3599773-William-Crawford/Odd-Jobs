@@ -1,13 +1,15 @@
+
 .edit-form{
     width: 470px;
     background: #cde0e2;
-    height: 580px;
-    padding: 50px 70px;
+    height: 644px;
+    padding: 50px 100px;
     border-radius: 10px;
     position: absolute;
     left: 50%;
     top: 53%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-44%);/* (right, down*/
+
   }
   .edit-form h1{
     text-align: center;

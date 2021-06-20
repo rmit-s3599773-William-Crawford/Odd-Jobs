@@ -11,6 +11,7 @@ import Job from "./components/pages/JobPosting Page/job";
 import Edit_Profile from "./components/pages/Profile page/Edit_Profile";
 import Inbox from './components/pages/Inbox page/inbox';
 import ViewJob from "./components/pages/ViewJob/ViewJob";
+import jobList from './components/pages/ViewJob/jobList';
 
   
 export class App extends Component {
@@ -37,11 +38,11 @@ export class App extends Component {
                             <Route exact path="/editprofile" component={Edit_Profile} />
                             <Route exact path="/inbox" component={Inbox} />
                             <Route exact path="/viewJobs" component={ViewJob} />
-
+                            <Route exact path="/jobListResult" component={jobList} />
                         </Switch>
                     </div>
                 </Router>
-                    <div class="footer">
+                    <div className="footer">
                        ©OddJobs Group 6
                     </div>
           </>

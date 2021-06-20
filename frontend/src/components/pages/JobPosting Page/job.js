@@ -4,10 +4,9 @@ import { Button, Form, Container, Row } from "react-bootstrap";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import HomeNaveBar from './../../Layout/Home layout/HomeNaveBar';
 import SearchBar from './../../Layout/Search bar/SearchBar';
-import './Job.css';
+import style from './job.css';
 import axios from "axios";
- 
- 
+import { BsArrowBarRight } from 'react-icons/bs';
 class Job extends Component{
   constructor(props) {
  
@@ -16,9 +15,10 @@ class Job extends Component{
       userId:"",
       userEmail:"",
       title: "",
-      field: "",
       description: "",
       location: "",
+      other:""
+     
     };
     this.setUserDetails()
     this.onChange = this.onChange.bind(this);
@@ -42,6 +42,51 @@ class Job extends Component{
           this.setState(this.state)
         })
   }
+  //Click event for showing lists
+   ShowHideItList(btnItandTech) {
+    var ItandTechList = document.getElementById("ItandTechList");
+    if (btnItandTech.value == " IT and Technology") {
+        ItandTechList.style.display = "block";
+        btnItandTech.value = "Hide";
+    } else {
+        ItandTechList.style.display = "none";
+        btnItandTech.value = " IT and Technology";
+    }
+}
+  //Click event for showing lists
+ShowHideGeneralList(btnGeneral) {
+  var generalList = document.getElementById("generalList");
+  if (btnGeneral.value == "General") {
+    generalList.style.display = "block";
+    btnGeneral.value = "Hide";
+  } else {
+    generalList.style.display = "none";
+      btnGeneral.value = "General";
+  }
+}
+  //Click event for showing lists
+ShowHideGardenList(btnGarden) {
+  var gardenList = document.getElementById("gardenList");
+  if (btnGarden.value == "General") {
+    gardenList.style.display = "block";
+    btnGarden.value = "Hide";
+  } else {
+    gardenList.style.display = "none";
+    btnGarden.value = "General";
+  }
+}
+
+
+ShowHideOtherList(btnGarden) {
+  var gardenList = document.getElementById("gardenList");
+  if (btnGarden.value == "General") {
+    gardenList.style.display = "block";
+    btnGarden.value = "Hide";
+  } else {
+    gardenList.style.display = "none";
+    btnGarden.value = "General";
+  }
+}
  
   onChange(e){
     this.setState({ [e.target.name]: e.target.value });
@@ -55,86 +100,83 @@ class Job extends Component{
     axios.post("/api/job/post", newJob)
         .finally( ()=> {
           alert("Job successfully created")
-          // window.history.back()
+          window.location.replace("http://localhost:8080/viewJobs");
+
         }
     )
-  }
+  } 
   
   render() {
       return (
-        <Container>
-        <HomeNaveBar/>
-        <SearchBar/>
- 
-          <div>
-            <Form  className="job-form" onSubmit={this.onSubmit}>
-              <h1>Job Post</h1>
- 
-              <Form.Group controlId="formBasicText" className="txtbr">
-                <Form.Control
-                  type="text"
-                  name="title"
-                  placeholder="Job title"
-                  value={this.state.title}
-                  onChange={this.onChange}
-                  required
-                />
-                <Form.Text className="text-muted"></Form.Text>
-              </Form.Group>
+      <Container>
+      <HomeNaveBar/>
+      <SearchBar/>
+        <div className="bottom-text">
+          <a href="/viewJobs" style={{ fontSize:"20px" }}>
+            {" "}
+            MyJobs{" "}
+          </a>
+        </div>
+      <div>
+      <Form className="job-form"  onSubmit={this.onSubmit}>
+      <Form.Group controlId="formBasicText" className="txtbr">
+        <Form.Control
+          type="text"
+          name="title"
+          placeholder="Job title"
+          value={this.state.title}
+          onChange={this.onChange}
+          required
+        />
+        <Form.Text className="text-muted"></Form.Text>
+      </Form.Group>
+                    
+        <BsArrowBarRight/>
+        <input id="btnItandTech" type="button" value=" IT and Technology" onClick={this.ShowHideItList} />
+        <br />
+        <div id="ItandTechList" style={{display: "none"}}>
+          <ul>
+            <li>Fix TV<input type="checkbox"/></li>
+            <li>Fix PC/Laptop<input type="checkbox" /></li>
+          </ul>
+          <br/>
+        </div>
 
-                <input
-                  type="checkbox"
-                  id="babysitter"
-                  name="babysitter"
-                   value="babysitter"
-                
-                />
-                <label for="babysitter"> Babysitter</label><br/>
-                
-                <input
-                  type="checkbox"
-                  id="dogwalker"
-                  name="dogwalker"
-               
-                
-                />
-                <label for="dog walker"> Dog walker</label><br/>
+          <BsArrowBarRight/>
+          <input id="btnGeneral" type="button" value="General" onClick={this.ShowHideGeneralList} />
+          <div id="generalList" style={{display: "none"}}>
+            <ul>
+              <li> Dogs Walker<input type="checkbox"/></li>
+              <li>Babysitter<input type="checkbox" /></li>
+              <li>Arts<input type="checkbox" /></li>
+            </ul>
+          </div>
+          <br/>
 
-                <input
-                  type="checkbox"
-                  id="carpenter"
-                  name="carpenter"
-                
-                />
-                <label for="dog walker"> Carpenter</label><br/>
+          <BsArrowBarRight/>
+          <input id="btnGarden" type="button" value="Garden" onClick={this.ShowHideGardenList} />
+          <div id="gardenList" style={{display: "none"}}>
+            <ul>
+              <li>Grass mowing<input type="checkbox"/></li>
+              <li>Crop cultivation<input type="checkbox" /></li>
+              <li>Garden decoration<input type="checkbox" /></li>
+            </ul>
+          </div>
+          <br/>
 
-                <input
-                  type="checkbox"
-                  id="maintenanceworker"
-                  name="maintenanceworker"
-                
-                />
-                <label for="maintenance worker"> Maintenance worker</label><br/>
-
-                <input
-                  type="checkbox"
-                  id="other"
-                  name="other"
-                
-                />
-                <label for="other"> Other(includ in Job Description box)</label><br/>
-                <textarea
-                  rows="3"
-                  cols="50"
-                  name="description"
-                  placeholder="Job Description"
-                  id="myTextarea"
-                  type="textarea"
-                  value={this.state.description}
-                  onChange={this.onChange}
-
-                />
-
+            <label id="other" htmlFor="other"> Other(includ in Job Description box)</label><br/>
+              <textarea
+                type="textarea"
+                size="30"
+                rows="3"
+                cols="50"
+                name="other"
+                id="other"
+                placeholder="Job Description"
+                value={this.state.description}
+                onChange={this.onChange}
+                value={this.state.other}
+              />
               <Form.Group controlId="Location" className="txtbr">
                 <Form.Control
                     name="location"
@@ -149,7 +191,6 @@ class Job extends Component{
               <Row>
                 <Button
                   variant="primary"
-                  // onClick={(event) => this.handleClick(event)}
                   className="jobbtn"
                   type="submit"
                   value="post"
@@ -157,9 +198,10 @@ class Job extends Component{
                   Post Job
                 </Button>
               </Row>
-            </Form>
-          </div>
-        </Container>
+          </Form>  
+        </div> 
+      </Container>
+       
       );
   }
  

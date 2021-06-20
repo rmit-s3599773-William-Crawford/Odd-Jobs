@@ -28,9 +28,8 @@ import axios from "axios";
         var lastName
         var address
         var phone
-
- 
-
+        var expertise
+        //Get and store current user
         response = axios.get("api/user/current")
             .then((response) => {
                 id = response.data.id;
@@ -54,7 +53,7 @@ import axios from "axios";
 
 
 
-
+    //Api for user can able to delete account
     deleteUser() {
         return function () {
             var msg = window.confirm("Are you sure about deleting the Account! this action cannot be undone?")
@@ -79,11 +78,10 @@ import axios from "axios";
               <div className="body" style={{ marginLeft:'25%'}}>
                 <h1>Profile Details</h1>  
                 <h3>-----------------------------------</h3>  
-
+                <br/>
                     <table style={{ width: '700px' }} >
                         <thead>
                             <tr>
-                                {/* <td>Email</td> */}
                                 <td>Full name</td>
                                 <td>Personal address</td>
                                 <td>Phone</td>
@@ -91,7 +89,6 @@ import axios from "axios";
                         </thead>
                         <tbody>
                             <tr>
-                                {/* <td> {this.state.username}</td> */}
                                 <td> {this.state.firstName} {this.state.lastName}</td>
                                 <td>{this.state.address}</td>
                                 <td>{this.state.phone}</td>
@@ -103,7 +100,6 @@ import axios from "axios";
                     <thead>
                             <tr>
                                 <td>Email</td>
-                                <td>Expertise/Field</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,7 +109,21 @@ import axios from "axios";
                         </tbody>
                     </table>
                     <br/>
-
+                    <table style={{ width: '550px' }} >
+                    <thead>
+                            <tr>
+                                <td>Expertise/Field</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {this.state.expertise}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <br/>
+                    <br/>
                     <Button
                         className='btnEdt'
                         href={'/editprofile'}

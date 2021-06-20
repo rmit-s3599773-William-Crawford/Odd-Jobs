@@ -20,6 +20,7 @@ class Register extends Component{
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+
   }
   
   onChange(e){
@@ -57,7 +58,7 @@ class Register extends Component{
 
               <Form.Group controlId="formBasicPassword" className="txtbr">
                 <Form.Control
-                  type="text"
+                  type="password"
                   name = "password"
                   placeholder="Password"
                   value={this.state.password}

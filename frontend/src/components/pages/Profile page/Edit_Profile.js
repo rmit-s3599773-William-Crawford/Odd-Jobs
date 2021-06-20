@@ -19,6 +19,7 @@ import axios from "axios";
             email:'',
             password:'',
             address:'',
+            expertise:'',
             phone:''
         };
         //Get ID of current User to send with form submission
@@ -49,8 +50,6 @@ import axios from "axios";
       
     }
   
-  
-  
     render () {
         return (      
            <Container fluid style={{paddingLeft:'0rem', paddingRight:'0rem'}}>
@@ -59,7 +58,7 @@ import axios from "axios";
                 <Form className="edit-form" onSubmit={this.onSubmit}>
                 <h1>Edit</h1>
                 <Form.Group  className="txtbEdit">
-                  <Form.Control controlId="formBasicEmail"
+                  <Form.Control
                       type = "email"
                       name = "email"
                       placeholder="Enter email"
@@ -69,7 +68,7 @@ import axios from "axios";
                   <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword" className="txtbEdit">
+                <Form.Group  className="txtbEdit">
                   <Form.Control
                       type="password"
                       name = "password"
@@ -79,7 +78,7 @@ import axios from "axios";
                   />
                 </Form.Group>
                 
-                <Form.Group controlId="formBasicFirstName" className="txtbEdit">
+                <Form.Group className="txtbEdit">
                     <Form.Control
                         type="text"
                         name = "firstName"
@@ -89,12 +88,23 @@ import axios from "axios";
                     />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicLastName" className="txtbEdit">
+                <Form.Group className="txtbEdit">
                   <Form.Control
                      type="text"
                      name = "lastName"
                      placeholder="Last Name"
                      value={this.state.lastName}
+                     onChange={this.onChange}
+                  />
+                </Form.Group>
+
+                
+                <Form.Group  className="txtbEdit">
+                  <Form.Control
+                     type="text"
+                     name = "expertise"
+                     placeholder="Expertise or Field"
+                     value={this.state.expertise}
                      onChange={this.onChange}
                   />
                 </Form.Group>
@@ -123,7 +133,6 @@ import axios from "axios";
                   <Button
                     type="submit"
                     variant="primary"
-                    // onClick={(event) => this.handleClick(event)}
                     className="Editbtn"
                    >
                     <GiSave/>

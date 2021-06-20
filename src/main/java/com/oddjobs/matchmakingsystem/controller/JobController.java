@@ -2,7 +2,9 @@ package com.oddjobs.matchmakingsystem.controller;
 
 import com.oddjobs.matchmakingsystem.exception.ResourceNotFoundException;
 import com.oddjobs.matchmakingsystem.model.Job;
+import com.oddjobs.matchmakingsystem.model.User;
 import com.oddjobs.matchmakingsystem.repository.JobRepository;
+
 import com.oddjobs.matchmakingsystem.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +26,23 @@ public class JobController {
 
     @PostMapping("/post")
     public Job postJob(@RequestBody Job job) {
-
         jobService.saveJob(job);
 
         return job;
+
+//        String kind = "Job";
+//        String name = "firstjob1";
+//        Key userKey = datastore.newKeyFactory().setKind(kind).newKey(name);
+//
+//        Entity newJob = Entity.newBuilder(userKey)
+//                .set("firstName", job.getFirstName())
+//                .set("lastName", job.getLastName())
+//                .set("email", job.getEmail())
+//                .set("username", job.getUsername())
+//                .set("password", job.getPassword())
+//                .build();
+//
+//        datastore.put(newJob);
     }
 
     @GetMapping("/all")
@@ -45,23 +60,19 @@ public class JobController {
         return ResponseEntity.ok().body(job);
     }
 
-    @PutMapping("/{id}")
-    public Job updateJob(@RequestBody Job newJob, @PathVariable(value = "id") Long id) {
-//        return this.jobRepository.findById(id)
-//        .map(user-> {
-//            job.setName(newJob.getJob());
-//            job.setField(newJob.getField());
-//            job.setDescription(newJob.getDescription());
-//            job.setPrerequisites(newJob.getPrerequisites());
-//            return this.jobRepository.save(user);
-//        })
-//        .orElseGet(()-> {
-//            newUser.setId(id);
-//            return this.userRepository.save(newJob);
-//        });
-        return null;
+    @PutMapping("/update")
+    public Job updateJob(@RequestBody Job job) {
+        System.out.println("Update Job " + job.getId()
+                + " with title: " + job.getTitle()
+                + " with field: " + job.getField()
+                + " with description: " + job.getDescription()
+                + " with requirements: " + job.getRequirements()
+                + " with location: " + job.getLocation());
+        jobService.updateJob(job);
+        return job;
     }
 
+    // TODO
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removeJob(@PathVariable(value = "id") Long id) {
 //        User user = this.userRepository.findById(id).orElseThrow(

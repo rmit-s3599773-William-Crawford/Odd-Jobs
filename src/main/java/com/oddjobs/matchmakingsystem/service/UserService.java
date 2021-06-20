@@ -23,19 +23,24 @@ public class UserService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    // Saves a User Object to the User repository
     public void saveUser(User user) {
         String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPassword);
-        user.setEnabled(true);
 
-        userRepository.save(user);
+        user.setEnabled(true);
+        User registeredUser = userRepository.save(user);
     }
 
+    // Gets a UserDetails Object from the User repository
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        System.out.println("loadUserByUsername");
         Optional<User> user = userRepository.findByEmail(email);
 
         if (user.isPresent()) {
+            System.out.println("User is present: ");
+            System.out.print(user.toString());
             return user.get();
         }
         else {
@@ -43,6 +48,7 @@ public class UserService implements UserDetailsService {
         }
     }
 
+    //Edits selected values of a User
     public boolean updateUser(User user) {
         Long id = user.getId();
         User savedUser = new User();
@@ -70,6 +76,7 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
+    // Get a User using the User's Id
     public String getUserDetailsById(Long id) {
         String userDetails = "";
         User user = new User();
@@ -81,7 +88,8 @@ public class UserService implements UserDetailsService {
         return userDetails;
     }
 
-    public boolean deleteUserById(Long id) {
+    // Delete a User using the User's Id
+    public boolean deleteUserDetailsById(Long id) {
         User user = new User();
         if(userRepository.findById(id).isPresent())
             user = userRepository.findById(id).get();

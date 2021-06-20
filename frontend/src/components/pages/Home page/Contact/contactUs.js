@@ -50,7 +50,7 @@ class contactUs extends Component {
                                 </form>
                     </div>
                 </div>
-                <div class="bottom-text-return">
+                <div className="bottom-text-return">
                     <a href="/about" style={{ textDecoration: "none" }}>
                     {" "}
                     <BiArrowBack/>
