@@ -138,7 +138,6 @@ ShowHideOtherList(btnGarden) {
           <ul>
             <li>Fix TV<input type="checkbox"/></li>
             <li>Fix PC/Laptop<input type="checkbox" /></li>
-            <li> Fix TV<input type="checkbox" /></li>
           </ul>
           <br/>
         </div>
@@ -165,7 +164,6 @@ ShowHideOtherList(btnGarden) {
           </div>
           <br/>
 
-            <span>Other</span>
             <label id="other" htmlFor="other"> Other(includ in Job Description box)</label><br/>
               <textarea
                 type="textarea"
