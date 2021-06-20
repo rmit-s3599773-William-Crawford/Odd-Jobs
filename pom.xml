@@ -17,6 +17,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <spring-cloud-gcp.version>2.0.0</spring-cloud-gcp.version>
+        <spring-cloud.version>2020.0.2</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -70,16 +72,18 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>2.2.0</version>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -112,12 +116,29 @@
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run-script build</arguments>
+                        </configuration>
+                    </execution>
                 </executions>
                 <configuration>
                     <nodeVersion>v14.16.1</nodeVersion>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <configuration>
+                    <version>1</version>
+                    <projectId>GCLOUD_CONFIG</projectId>
+                </configuration>
+            </plugin>
         </plugins>
-        
     </build>
 </project>
